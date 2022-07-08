@@ -13,7 +13,7 @@ import {connectToParent} from "penpal";
         }
     });
     const parent = await connection.promise;
-    parent.hello("Message printed by child to parent");
+    parent.hello("Message printed by child to parent :)");
 
     // append text retrieved from a parent method
     parent.getValueFromParent().then((valueReturnedFromParent) => {
