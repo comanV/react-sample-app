@@ -1,11 +1,17 @@
-import './App.css';
+import Adventures from './components/Adventures';
+import logo from './images/wknd-logo-dk.svg';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       <p>I'm the child inside the iframe</p>
-      </header>
+      <div className="Home">
+        <header>
+          <img src={logo} className="logo" alt="WKND Logo"/>
+          <hr />
+        </header>
+        <Adventures />
+      </div>
     </div>
   );
 }
