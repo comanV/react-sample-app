@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Adventures from './components/Adventures';
+import logo from './images/wknd-logo-dk.svg';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="Home">
+        <header>
+          <img src={logo} className="logo" alt="WKND Logo"/>
+          <hr />
+        </header>
+        <Adventures />
+      </div>
     </div>
   );
 }
