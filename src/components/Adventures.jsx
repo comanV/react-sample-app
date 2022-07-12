@@ -16,7 +16,7 @@ function Adventures() {
     // If query is not defined, persistent query will be requested
     // Initially use cached / persistent query.
     const [query, setQuery] = useState('');
-    const persistentQuery = 'wknd/adventures-all';
+    const persistentQuery = 'wknd-shared/adventures-all';
     //Use a custom React Hook to execute the GraphQL query
     const { data, errorMessage } = useGraphQL(query, persistentQuery);
 
@@ -49,20 +49,20 @@ function Adventures() {
 function AdventureItem(props) {
 
   //Must have title, path, and image
-  if(!props || !props._path || !props.adventureTitle || !props.adventurePrimaryImage ) {
+  if(!props || !props._path || !props.title || !props.primaryImage ) {
     return null;
   }
   return (
         <li className="adventure-item">
           {/* <Link to={`/adventure:${props._path}`}> */}
-            <img className="adventure-item-image" src={props.adventurePrimaryImage._path} 
-                 alt={props.adventureTitle}/>
+            <img className="adventure-item-image" src={props.primaryImage._path} 
+                 alt={props.title}/>
           {/* </Link> */}
           <div className="adventure-item-length-price">
-            <div className="adventure-item-length">{props.adventureTripLength}</div>
-            <div className="adventure-item-price">{props.adventurePrice}</div>
+            <div className="adventure-item-length">{props.tripLength}</div>
+            <div className="adventure-item-price">{props.price}</div>
           </div>
-          <div className="adventure-item-title">{props.adventureTitle}</div>
+          <div className="adventure-item-title">{props.title}</div>
       </li>
       );
 }
