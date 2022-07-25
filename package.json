@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@adobe/aem-headless-client-js": "^3.0.0",
-    "@aem-sites/universal-editor-cors": "^0.0.1",
+    "@aem-sites/universal-editor-cors": "^0.0.3",
+    "@aem-sites/universal-editor-overlays": "^0.0.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",

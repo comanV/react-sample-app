@@ -14,15 +14,30 @@
   resolved "https://registry.yarnpkg.com/@adobe/aio-lib-core-errors/-/aio-lib-core-errors-3.0.1.tgz#eef4bae04c725e82d212afb131cf943f53d51e90"
   integrity sha512-o3FQFdrC+cCT+S1tjpGsWvshUfdiW57V+BOhf1YrQ/56ioEzYQvVEP2lTBX/tcyye6m+qWVGqAhkHFNq7oPLWg==
 
-"@aem-sites/universal-editor-cors@^0.0.1":
-  version "0.0.1"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.1.tgz#547b9ce92019ec034abe970ca95eae9a5ab62ad2"
-  integrity sha512-2mmTmJDMdMQ6fP+VjqF0icPmI8LmGuqygU/emqo8FwSUhdqNuSiu7bZW6qGhbJ13lsBzsH69cyMXHCGbgsEUZg==
+"@aem-sites/universal-editor-cors@^0.0.3":
+  version "0.0.3"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.3.tgz#c1d149cc57eeacdcb3759cd6116479bf36083234"
+  integrity sha512-S4/MlO2mvMmFU6FoNniazXarGNzKhY1BM57+0335rxATu8A0+fKYp9Txt6RQ96BwJRfb/KnIvz1JoP0CvlDoww==
+  dependencies:
+    "@aem-sites/universal-editor-overlays" "^0.0.2"
+    "@babel/core" "^7.18.6"
+    "@babel/preset-typescript" "^7.18.6"
+    lint-staged "^13.0.3"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    rimraf "^3.0.2"
+    typescript "^4.7.4"
+
+"@aem-sites/universal-editor-overlays@^0.0.2":
+  version "0.0.2"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.2.tgz#2bbcf46c320f180eeedaa66f5f7a7c8f30f025cb"
+  integrity sha512-Le1nRgxzRWrHXaGBGlZnAKW/1t00emFEVcCnQyI9n0Cw5grjuYTJf1pumKzFcSnj8UtvNwxpYGlpEHZmixBg7w==
   dependencies:
     "@babel/core" "^7.18.6"
     "@babel/preset-typescript" "^7.18.6"
     lint-staged "^13.0.3"
     react "^18.2.0"
+    react-dom "^18.2.0"
     rimraf "^3.0.2"
     typescript "^4.7.4"
 
