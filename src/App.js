@@ -1,6 +1,9 @@
-import Adventures from './components/Adventures';
+import React, { createContext, useState, useEffect } from "react";
+import Home from "./components/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import logo from './images/wknd-logo-dk.svg';
 import './App.scss';
+import AdventureDetail from "./components/AdventureDetail";
 // import { EditorProvider } from '@aem-sites/universal-editor-react';
 
 // function App() {
@@ -19,8 +22,6 @@ import './App.scss';
 //   );
 // }
 
-import React, { createContext, useState, useEffect } from "react";
-
 export const EditorContext = createContext(null);
 
 function App() {
@@ -37,7 +38,12 @@ function App() {
           <hr />
         </header>
         <EditorContext.Provider value={isInEditor}>
-          <Adventures />
+          <Router>
+            <Routes>
+              <Route path="/adventure:slug" element={<AdventureDetail />} />
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </Router>
         </EditorContext.Provider>
       </div>
     </div>

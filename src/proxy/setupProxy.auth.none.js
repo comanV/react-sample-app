@@ -22,5 +22,15 @@ module.exports = function(app) {
       changeOrigin: true
     })
   );
+
+  /**
+    * Enable CORS on requests from the SPA to AEM
+    * 
+    * If this rule is not in place, CORS errors will occur when running the SPA on http://localhost:3000
+    */
+   app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", REACT_APP_HOST_URI);
+    next();
+});
 };
 
