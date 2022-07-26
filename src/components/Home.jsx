@@ -8,6 +8,7 @@ it.
 import React from 'react';
 import Adventures from './Adventures';
 import Card from './Card';
+import Summary from './Summary';
 
 /***
  * Displays a grid of current adventures
@@ -16,8 +17,11 @@ import Card from './Card';
     return (
       <div className="Home">
         <Card/>
+        <hr/>
         <h2>Current Adventures</h2>
         <Adventures />
+        <hr/>
+        <Summary />
     </div>
     );
 }
