@@ -25,7 +25,7 @@ function useGraphQL(query, path) {
       const sdk = new AEMHeadless({ endpoint: REACT_APP_GRAPHQL_ENDPOINT })
       const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
 
-      request(query || path)
+      request(path)
         .then(({ data, errors }) => {
           //If there are errors in the response set the error message
           if(errors) {
