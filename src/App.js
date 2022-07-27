@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import logo from './images/wknd-logo-dk.svg';
 import './App.scss';
 import AdventureDetail from "./components/AdventureDetail";
+import Articles from "./components/Articles";
 // import { EditorProvider } from '@aem-sites/universal-editor-react';
 
 // function App() {
@@ -41,6 +42,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/adventure:slug" element={<AdventureDetail />} />
+              <Route path="/articles" element={<Articles />} />
               <Route path="/" element={<Home />} />
             </Routes>
           </Router>

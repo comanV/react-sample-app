@@ -30,7 +30,7 @@ function AdventureItem(props) {
           </Link>
           <div className="adventure-item-length-price">
             <div className="adventure-item-length" data-id="tripLength">{props.tripLength}</div>
-            <div className="adventure-item-price" data-id="price">{props.price}</div>
+            <div className="adventure-item-price" data-id="price">${props.price}</div>
           </div>
           <div className="adventure-item-title" data-id="title">{props.title}</div>
       </li>
