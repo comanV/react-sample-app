@@ -7,6 +7,7 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 import React from 'react';
+import {Link} from 'react-router-dom';
 import image from '../images/wknd-card.jpeg';
 
 const Card = () => (
@@ -22,6 +23,9 @@ const Card = () => (
             are likely to meet on your journey will be some of the most easy-going 
             characters you will find anywhere in the world.
           </p>
+          <Link to={`/articles`}>
+            <button>Show More</button>
+          </Link>
         </div>
     </article>
 );

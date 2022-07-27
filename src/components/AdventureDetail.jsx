@@ -5,7 +5,7 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate, useParams} from "react-router-dom";
 import CurrencyFormat from 'react-currency-format';
 import backIcon from '../images/icon-close.svg';
@@ -14,6 +14,7 @@ import Loading from './Loading';
 import { mapJsonRichText } from '../utils/renderRichText';
 import './AdventureDetail.scss';
 import useGraphQL from '../api/useGraphQL';
+import { EditorContext } from "../App";
 
 
 function AdventureDetail() {
@@ -53,7 +54,7 @@ function AdventureDetail() {
     </div>);
 }
 
-function AdventureDetailRender({title, 
+function AdventureDetailRender({_path, title, 
                                 primaryImage, 
                                 activity,
                                 adventureType, 
@@ -64,8 +65,10 @@ function AdventureDetailRender({title,
                                 description,
                                 itinerary,
                                 contributor, references}) {
-
-    return (<>
+    const isInEditor = useContext(EditorContext);
+    const editorProps = isInEditor && { 'data-cq-ref': _path };
+  
+    return (<div {...editorProps}>
             <h1 className="adventure-detail-title">{title}</h1>
             <div className="adventure-detail-info">
                 <div className="adventure-detail-info-label">Activity</div>
@@ -94,7 +97,7 @@ function AdventureDetailRender({title,
             <div className="adventure-detail-itinerary">{mapJsonRichText(itinerary.json)}</div>
             <Contributer {...contributor} />
             </div>
-    </>
+    </div>
     );
 
 }
