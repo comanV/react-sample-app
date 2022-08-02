@@ -5,6 +5,8 @@ import logo from './images/wknd-logo-dk.svg';
 import './App.scss';
 import AdventureDetail from "./components/AdventureDetail";
 import Articles from "./components/Articles";
+import ArticleDetail from "./components/ArticleDetail";
+import About from "./components/About";
 // import { EditorProvider } from '@aem-sites/universal-editor-react';
 
 // function App() {
@@ -42,8 +44,11 @@ function App() {
           <Router>
             <Routes>
               <Route path="/adventure:slug" element={<AdventureDetail />} />
-              <Route path="/articles" element={<Articles />} />
               <Route path="/" element={<Home />} />
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/articles/article:slug" element={<ArticleDetail />} />
+              <Route path="/articles/article:slug/aboutus" element={<About />} />
+              
             </Routes>
           </Router>
         </EditorContext.Provider>

@@ -8,19 +8,22 @@ it.
 */
 import React, { useContext } from 'react';
 import useGraphQL from '../api/useGraphQL';
+import {Link} from 'react-router-dom';
 import Error from './Error';
 import Loading from './Loading';
 import { EditorContext } from '../App';
 import "./Articles.scss";
 
-const Article = ({ _path, title, featuredImage, authorFragment }) => {
+const Article = ({ _path, title, authorFragment, slug }) => {
   const isInEditor = useContext(EditorContext);
 
   const editorProps = isInEditor && { 'data-cq-ref': _path };
   return (
     <li className="article-item">
       <div {...editorProps}>
-        <h3 data-id="title">{title}</h3>         
+        <Link to={`/articles/article:${slug}`}>
+          <h3 data-id="title">{title}</h3>  
+        </Link>               
         <img className="article-item-image" src={authorFragment?.profilePicture._path} 
                 alt={title} data-id="profilePicture"/>
         <p>{`By ${authorFragment.firstName} ${authorFragment.lastName}`}</p>
