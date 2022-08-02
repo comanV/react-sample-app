@@ -87,7 +87,7 @@ $contributor-image-size: 60px;
 .contributor {
   width: 100%;
   float: left;
-
+  margin: 20px 0;
   &-image {
     width: $contributor-image-size;
     height: $contributor-image-size;
