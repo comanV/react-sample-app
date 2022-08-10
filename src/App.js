@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import logo from './images/wknd-logo-dk.svg';
-import './App.scss';
+import logo from "./images/wknd-logo-dk.svg";
+import "./App.scss";
 import AdventureDetail from "./components/AdventureDetail";
 import Articles from "./components/Articles";
 import ArticleDetail from "./components/ArticleDetail";
@@ -37,7 +37,7 @@ function App() {
     <div className="App">
       <div className="Home">
         <header>
-          <img src={logo} className="logo" alt="WKND Logo"/>
+          <img src={logo} className="logo" alt="WKND Logo" />
           <hr />
         </header>
         <EditorContext.Provider value={isInEditor}>
@@ -48,7 +48,6 @@ function App() {
               <Route path="/articles" element={<Articles />} />
               <Route path="/articles/article:slug" element={<ArticleDetail />} />
               <Route path="/articles/article:slug/aboutus" element={<About />} />
-              
             </Routes>
           </Router>
         </EditorContext.Provider>
