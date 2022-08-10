@@ -30,7 +30,13 @@ export const EditorContext = createContext(null);
 function App() {
   const [isInEditor, setIsInEditor] = useState(false);
   useEffect(() => {
-    window.addEventListener("enableEditing", () => setIsInEditor(true));
+    const handleEditing = () => setIsInEditor(true);
+    if (sessionStorage.getItem("isInEditor")) handleEditing();     
+    else window.addEventListener("enableEditing", handleEditing);
+    
+    return () => {
+      window.removeEventListener("enableEditing", handleEditing);
+    };
   }, []);
 
   return (
