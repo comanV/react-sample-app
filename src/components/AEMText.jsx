@@ -34,7 +34,7 @@ const AEMText = ({ path }) => {
 
   return (
     <div {...editorProps}>
-      {data?.text}
+      {data?.richText ? <div dangerouslySetInnerHTML={{__html: data?.text}}/> : data?.text}
     </div>
   );
 };
