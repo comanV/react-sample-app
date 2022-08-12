@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Local development
+
+- AEM instance is running locally
+- WKND project is installed on the instance
+- Update [CORS config](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/graphql/quick-setup/local-sdk.html?lang=en#cors-config)
+
 ## Available Scripts
 
 In the project directory, you can run:
