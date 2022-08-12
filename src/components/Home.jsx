@@ -7,6 +7,7 @@ it.
 */
 import React from 'react';
 import Adventures from './Adventures';
+import AEMText from './AEMText';
 import Card from './Card';
 import Summary from './Summary';
 
@@ -18,7 +19,7 @@ import Summary from './Summary';
       <div className="Home">
         <Card/>
         <hr/>
-        <h2>Current Adventures</h2>
+        <h2><AEMText path="content/wknd/us/en/about-us/jcr:content/root/container/title_393953656_copy"/></h2>
         <Adventures />
         <hr/>
         <Summary />
