@@ -22,7 +22,13 @@ const AEMText = ({ path }) => {
   useEffect(() => {
     async function fetchData(path) {
       const hostURL = `${REACT_APP_HOST_URI}${path}`;
-      const response = await fetch(`${hostURL}.model.json`);
+      const response = await fetch(`${hostURL}.model.json`, 
+      {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem("token")
+        }
+      }
+      );
       if (response.ok) setData(await response.json());
     }
     fetchData(path);
