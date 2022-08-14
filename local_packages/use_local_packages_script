@@ -1,4 +1,6 @@
 #if [ -d "editor-utils-sdk" ]; then rm -Rf editor-utils-sdk; fi
+yarn global add yalc
+yalc --version
 echo "Hello, world!"
 #mkdir editor-utils-sdk
 #cd editor-utils-sdk
