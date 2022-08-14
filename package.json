@@ -25,6 +25,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "use-local-packages": "bash ./local_packages/use_local_packages_script",
     "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,0 +1,6 @@
+#if [ -d "editor-utils-sdk" ]; then rm -Rf editor-utils-sdk; fi
+echo "Hello, world!"
+#mkdir editor-utils-sdk
+#cd editor-utils-sdk
+#git clone git@git.corp.adobe.com:CQ/universal-editor-utils.git
+#cd universal-editor-utils
