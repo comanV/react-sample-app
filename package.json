@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@adobe/aem-headless-client-js": "file:.yalc/@aem-sites/universal-editor-overlays",
-    "@aem-sites/universal-editor-cors": "file:.yalc/@aem-sites/universal-editor-cors",
-    "@aem-sites/universal-editor-overlays": "file:.yalc/@aem-sites/universal-editor-overlays",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
