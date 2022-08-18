@@ -7,11 +7,11 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 // Use Service token exchange for Cloud Env PROD
-// const proxy = require('./proxy/setupProxy.auth.service-token')
+const proxy = require('./proxy/setupProxy.auth.service-token')
 // Use Dev token for local development with Cloud Env
 // const proxy = require('./proxy/setupProxy.auth.dev-token')
 // Use user/pass for local development with Local Author Env
-const proxy = require('./proxy/setupProxy.auth.basic')
+// const proxy = require('./proxy/setupProxy.auth.basic')
 // Auth not needed for local development with Local Publisher Env
 // const proxy = require('./proxy/setupProxy.auth.none')
 // Proxy configuration for SPA Editor (and GraphQL) using Basic Auth

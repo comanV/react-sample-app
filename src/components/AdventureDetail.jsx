@@ -7,7 +7,7 @@ it.
 */
 import React, { useContext } from 'react';
 import { Link, useNavigate, useParams} from "react-router-dom";
-import CurrencyFormat from 'react-currency-format';
+// import CurrencyFormat from 'react-currency-format';
 import backIcon from '../images/icon-close.svg';
 import Error from './Error';
 import Loading from './Loading';
@@ -83,7 +83,7 @@ function AdventureDetailRender({_path, title,
                 <div className="adventure-detail-info-description">{difficulty}</div>
                 <div className="adventure-detail-info-label">Price</div>
                 <div className="adventure-detail-info-description">
-                    <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                    '$' + price
                 </div>
             </div>
             <div className="adventure-detail-content">
