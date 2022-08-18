@@ -23,7 +23,7 @@ function useGraphQL(query, path) {
       const sdk = new AEMHeadless({ 
         serviceURL: REACT_APP_HOST_URI,
         endpoint: REACT_APP_GRAPHQL_ENDPOINT,
-        auth: "BEARER " + REACT_APP_SERVICE_TOKEN
+        auth: REACT_APP_SERVICE_TOKEN
       });
       const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
 
