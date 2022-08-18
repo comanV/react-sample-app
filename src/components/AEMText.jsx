@@ -21,19 +21,15 @@ const AEMText = ({ path }) => {
   const [data,setData] = React.useState({});
   useEffect(() => {
     async function fetchData(path) {
-      const hostURL = `${REACT_APP_HOST_URI}${path}`.replace(/\/+/g, '/');
-      const response = await fetch(`${hostURL}.model.json`, {
-        headers: {
-          Authorization: 'Basic YWRtaW46YWRtaW4='
-        }
-      });
+      // const hostURL = `${REACT_APP_HOST_URI}${path}`;
+      const response = await fetch(`${path}.model.json`);
       if (response.ok) setData(await response.json());
     }
     fetchData(path);
   },[path]);
 
   return (
-    <div {...editorProps}>
+    <div {...editorProps} className="red">
       {data?.richText ? <div dangerouslySetInnerHTML={{__html: data?.text}}/> : data?.text}
     </div>
   );
