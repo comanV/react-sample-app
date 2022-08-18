@@ -8,7 +8,7 @@ it.
 import {useState, useEffect} from 'react';
 
 const {AEMHeadless} = require('@adobe/aem-headless-client-js')
-const { REACT_APP_GRAPHQL_ENDPOINT, REACT_APP_HOST_URI } = process.env;
+const { REACT_APP_GRAPHQL_ENDPOINT, REACT_APP_HOST_URI, REACT_APP_SERVICE_TOKEN } = process.env;
 
 /**
  * Custom React Hook to perform a GraphQL query
@@ -23,7 +23,7 @@ function useGraphQL(query, path) {
       const sdk = new AEMHeadless({ 
         serviceURL: REACT_APP_HOST_URI,
         endpoint: REACT_APP_GRAPHQL_ENDPOINT,
-        auth: JSON.parse(localStorage.getItem("token"))?.access_token
+        auth: "BEARER " + REACT_APP_SERVICE_TOKEN
       });
       const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
 
