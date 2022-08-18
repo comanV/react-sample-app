@@ -5,7 +5,7 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import useGraphQL from '../api/useGraphQL';
 import Error from './Error';
@@ -13,19 +13,40 @@ import Loading from './Loading';
 import "./Adventures.scss";
 
 import { EditorContext } from "../App";
+const { REACT_APP_HOST_URI, REACT_APP_SERVICE_TOKEN } =process.env;
+
+const fetchImg = (path, setImg) => {
+  fetch(`${REACT_APP_HOST_URI}${path}`, {
+    headers: {
+      Authorization: "Bearer " + REACT_APP_SERVICE_TOKEN
+    }
+  })
+  .then(response => response.blob()) // sending the blob response to the next then
+  .then(blob => {
+      setImg(URL.createObjectURL(blob));
+  })
+  .catch(err => console.log(err));
+};
 
 function AdventureItem(props) {
   const isInEditor = useContext(EditorContext);
+  const [img, setImg] = React.useState();
+
+  useEffect(() => {
+    if(!props?.primaryImage?._path) return;
+    fetchImg(props.primaryImage._path, setImg);
+  }, [props.primaryImage._path]);
 
   //Must have title, path, and image
   if(!props || !props._path || !props.title || !props.primaryImage ) {
     return null;
   }
   const editorProps = isInEditor && { 'data-cq-ref': props._path };
+
   return (
          <li className="adventure-item" {...editorProps}>
           <Link to={`/adventure:${props.slug}`}>
-            <img className="adventure-item-image" src={props.primaryImage._path} 
+            <img className="adventure-item-image" src={img} 
                 alt={props.title} data-id="primaryImage"/>
           </Link>
           <div className="adventure-item-length-price">
