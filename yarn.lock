@@ -79,8 +79,10 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@aem-sites/universal-editor-cors@file:.yalc/@aem-sites/universal-editor-cors":
+"@aem-sites/universal-editor-cors@^0.0.14":
   version "0.0.14"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.14.tgz#ba4f2d4c48d86fcaa1546b2647a60af29d2b043e"
+  integrity sha512-8xDBeWlnbcGzfHOcLM8Uv/MkmyMpeEmlGT2Ufm8mQZ+bgF7qzrwYjvXuOOC4fxihJdb7CStzvFQ2fSUA6LWimw==
   dependencies:
     "@aem-sites/universal-editor-overlays" "^0.0.14"
     penpal "^6.2.2"
