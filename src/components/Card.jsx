@@ -16,8 +16,8 @@ const Card = () => (
     <article className="card">
       <img src={image} alt="Sample" />
       <div>
-        <h4><AEMText path="/card/subtitle" /></h4>
-        <h3><AEMText path="/card/title"/></h3>
+        <h4><AEMText path="/path/subtitle" /></h4>
+        <h3><AEMText path="/path/card-title"/></h3>
         <p>
           The Australian West coast is a camper’s heaven. 
           Endless miles of desert roads leading to secret beaches, 

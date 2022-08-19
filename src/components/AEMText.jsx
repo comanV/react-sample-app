@@ -24,7 +24,7 @@ const AEMText = ({ path }) => {
     fetch(path)
       .then((res) => res.json())
       .then((json) => {
-        setData(json);
+        setData(json.paths);
       })
   }, [path]);
 

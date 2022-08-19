@@ -20,7 +20,7 @@ import Summary from './Summary';
         <Card/>
         <hr/>
         <h2>
-          <AEMText path="/main/title"/>
+          <AEMText path="/path/main-title"/>
         </h2>
         <Adventures />
         <hr/>
