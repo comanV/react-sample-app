@@ -11,10 +11,12 @@
 # <npm run deploy> - If you want to deploy the app to a non-production link, e.g https://62ff59a019923a6f7aec439d--prismatic-panda-c194c0.netlify.app/.
 # <npm run deploy prod> - If you want to deploy the app to the production link https://prismatic-panda-c194c0.netlify.app/.
 
+# If case of permission issues, run <chmod +x deploy/script.sh> at the root of the project.
+
 if npm run build; then
   echo "Build created successfully"
   netlify link
-  if [ $1 = "prod" ]; then
+  if [ "$1" = "prod" ]; then
     netlify deploy --prod
   else
     netlify deploy
