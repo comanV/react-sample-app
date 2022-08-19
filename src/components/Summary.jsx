@@ -14,8 +14,8 @@ const Summary = () => (
     <div className="card">
       <div>
       <h3>About US</h3>
-      <AEMText path="/content/wknd/us/en/about-us/jcr:content/root/container/text_359993709" />
-      <AEMText path="/content/wknd/us/en/faqs/jcr:content/root/container/container/text" />
+      <p><i><AEMText path="/path/summary-intro"/></i></p>
+      <AEMText path="/path/summary-content" />
       </div>
       <img src={image} alt="footer" />        
     </div>

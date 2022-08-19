@@ -13,29 +13,10 @@ import Loading from './Loading';
 import "./Adventures.scss";
 
 import { EditorContext } from "../App";
-const { REACT_APP_HOST_URI, REACT_APP_SERVICE_TOKEN } =process.env;
-
-const fetchImg = (path, setImg) => {
-  fetch(`${REACT_APP_HOST_URI}${path}`, {
-    headers: {
-      Authorization: "Bearer " + REACT_APP_SERVICE_TOKEN
-    }
-  })
-  .then(response => response.blob()) // sending the blob response to the next then
-  .then(blob => {
-      setImg(URL.createObjectURL(blob));
-  })
-  .catch(err => console.log(err));
-};
+const { REACT_APP_PUBLISH_URI } =process.env;
 
 function AdventureItem(props) {
   const isInEditor = useContext(EditorContext);
-  const [img, setImg] = React.useState();
-
-  useEffect(() => {
-    if(!props?.primaryImage?._path) return;
-    fetchImg(props.primaryImage._path, setImg);
-  }, [props.primaryImage._path]);
 
   //Must have title, path, and image
   if(!props || !props._path || !props.title || !props.primaryImage ) {
@@ -46,7 +27,7 @@ function AdventureItem(props) {
   return (
          <li className="adventure-item" {...editorProps}>
           <Link to={`/adventure:${props.slug}`}>
-            <img className="adventure-item-image" src={img} 
+            <img className="adventure-item-image" src={`${REACT_APP_PUBLISH_URI}${props.primaryImage._path}`} 
                 alt={props.title} data-id="primaryImage"/>
           </Link>
           <div className="adventure-item-length-price">
