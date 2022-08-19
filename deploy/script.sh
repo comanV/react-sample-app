@@ -15,10 +15,8 @@ if npm run build; then
   echo "Build created successfully"
   netlify link
   if [ $1 = "prod" ]; then
-    echo "Prod"
     netlify deploy --prod
   else
-    echo "Non Prod"
     netlify deploy
   fi
 else
