@@ -9,7 +9,7 @@ it.
 import React from 'react';
 import { useEffect } from 'react';
 import { EditorContext } from '../App';
-const { REACT_APP_HOST_URI, REACT_APP_SERVICE_TOKEN } =  process.env;
+import "../api/mirage.js";
 
 const AEMText = ({ path }) => {
   const isInEditor = React.useContext(EditorContext);
@@ -20,17 +20,13 @@ const AEMText = ({ path }) => {
 
   const [data,setData] = React.useState({});
   useEffect(() => {
-    async function fetchData(path) {
-      const hostURL = `${REACT_APP_HOST_URI}${path}`;
-      const response = await fetch(`${hostURL}.model.json`, {
-        headers: {
-          Authorization: "Bearer " + REACT_APP_SERVICE_TOKEN
-        }
-      });
-      if (response.ok) setData(await response.json());
-    }
-    fetchData(path);
-  },[path]);
+    if(!path) return;
+    fetch(path)
+      .then((res) => res.json())
+      .then((json) => {
+        setData(json);
+      })
+  }, [path]);
 
   return (
     <div {...editorProps}>

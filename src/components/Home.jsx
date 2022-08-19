@@ -19,7 +19,9 @@ import Summary from './Summary';
       <div className="Home">
         <Card/>
         <hr/>
-        <h2><AEMText path="/content/wknd/us/en/about-us/jcr:content/root/container/title_393953656_copy"/></h2>
+        <h2>
+          <AEMText path="/main/title"/>
+        </h2>
         <Adventures />
         <hr/>
         <Summary />
