@@ -79,28 +79,29 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@aem-sites/universal-editor-cors@^0.0.14":
-  version "0.0.14"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.14.tgz#ba4f2d4c48d86fcaa1546b2647a60af29d2b043e"
-  integrity sha512-8xDBeWlnbcGzfHOcLM8Uv/MkmyMpeEmlGT2Ufm8mQZ+bgF7qzrwYjvXuOOC4fxihJdb7CStzvFQ2fSUA6LWimw==
+"@aem-sites/universal-editor-cors@^0.0.15":
+  version "0.0.15"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.15.tgz#518093ca0b10b0b7577ecf63b5ada4dc2aa8f855"
+  integrity sha512-j0SYTcL5lmUNnhzO7lqo6vJgl852GTbmMK08rBboAuNqMmAIes6mwIDcp7/Od0vflt6Jnt35BiiTEJLat7fSxA==
   dependencies:
-    "@aem-sites/universal-editor-overlays" "^0.0.14"
+    "@aem-sites/universal-editor-overlays" "^0.0.15"
     penpal "^6.2.2"
     react "^18.2.0"
     react-dom "^18.2.0"
     react-penpal "^1.0.4"
     typescript "^4.7.4"
 
-"@aem-sites/universal-editor-overlays@^0.0.14":
-  version "0.0.14"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.14.tgz#0fdb4d9239b6c19c47d035d934a35a4376adf235"
-  integrity sha512-ipc59WGxYqZa7hXfJ+5stoAExCCB/gAiB1+lboq1JOnw0DXhQVL+3/TRuxGujB8mB7ytQbMyhhYokcLkRMIOvA==
+"@aem-sites/universal-editor-overlays@^0.0.15":
+  version "0.0.15"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.15.tgz#3433b34772d2cfbd4a670e88bdbaaf123cedef52"
+  integrity sha512-WNqDHPt3GR/f+odMGyfQXL0D/yZgmGGrBvCzUDhmXqrCxMd17MojQImAGMNIQY7XkXyndJ3g3NUq5Rjx6yS5Bg==
   dependencies:
     debounce "^1.2.1"
     react "^18.2.0"
     react-dom "^18.2.0"
     typescript "^4.7.4"
     use-debounce "^8.0.3"
+    uuid "^8.3.2"
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
