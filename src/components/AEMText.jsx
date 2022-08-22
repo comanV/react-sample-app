@@ -9,7 +9,6 @@ it.
 import React from 'react';
 import { useEffect } from 'react';
 import { EditorContext } from '../App';
-import "../api/mirage.js";
 
 const AEMText = ({ path }) => {
   const isInEditor = React.useContext(EditorContext);
