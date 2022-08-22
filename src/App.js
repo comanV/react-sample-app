@@ -7,6 +7,8 @@ import AdventureDetail from "./components/AdventureDetail";
 import Articles from "./components/Articles";
 import ArticleDetail from "./components/ArticleDetail";
 import About from "./components/About";
+import "./api/mirage.js";
+
 // import { EditorProvider } from '@aem-sites/universal-editor-react';
 
 // function App() {
