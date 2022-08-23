@@ -8,14 +8,13 @@ it.
 */
 import React from 'react';
 import image from '../images/footer.jpeg';
-import AEMText from './AEMText';
+import AEMContainer from './AEMContainer';
 
 const Summary = () => (
     <div className="card">
       <div>
       <h3>About US</h3>
-      <p><i><AEMText path="/path/summary-intro"/></i></p>
-      <AEMText path="/path/summary-content" />
+      <AEMContainer path="/path/summary" />
       </div>
       <img src={image} alt="footer" />        
     </div>

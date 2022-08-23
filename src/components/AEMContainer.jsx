@@ -9,31 +9,33 @@ it.
 import React from 'react';
 import { useEffect } from 'react';
 import { EditorContext } from '../App';
+import AEMText from './AEMText';
 
-const AEMText = (props) => {
-  const { path, text, id } = props;
+const AEMContainer = ({ path }) => {
   const isInEditor = React.useContext(EditorContext);
   const editorProps = isInEditor && { 
-    'data-cq-path': path || id,
-    'data-cq-label': "Text" 
+    'data-cq-path': path,
+    'data-cq-label': "Container"
   };
-  
-  const [data,setData] = React.useState(props);
+
+  const [data,setData] = React.useState({});
   useEffect(() => {
-    if(!path || text) return;
+    if(!path) return;
     fetch(path)
       .then((res) => res.json())
       .then((json) => {
-        setData(json.paths);
+        const response = json.paths;
+        setData(response);
       })
-  }, [path, text]);
+  }, [path]);
+  const items = data && data.items ? data.items.map(item => <AEMText key={item?.path} {...item} />) : <></>;
 
   return (
-    <div {...editorProps}>
-      {data?.richText ? <div dangerouslySetInnerHTML={{__html: data?.text}}/> : data?.text}
+    <div {...editorProps} className="container">
+      {items}
     </div>
   );
 };
 
 
-export default AEMText;
+export default AEMContainer;
