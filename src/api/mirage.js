@@ -80,3 +80,4 @@ let server = createServer({
 });
 
 server.passthrough(`${REACT_APP_HOST_URI}/**`);
+server.passthrough("https://snazzy-tulumba-547f0e.netlify.app/**");
