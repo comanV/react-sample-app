@@ -14,10 +14,9 @@ const AEMText = (props) => {
   const { path, text, id } = props;
   const isInEditor = React.useContext(EditorContext);
   const editorProps = isInEditor && { 
-    'data-cq-path': path || id,
+    'data-cq-path': path || "/" + id,
     'data-cq-label': "Text" 
   };
-  
   const [data,setData] = React.useState(props);
   useEffect(() => {
     if(!path || text) return;
@@ -27,7 +26,6 @@ const AEMText = (props) => {
         setData(json.paths);
       })
   }, [path, text]);
-
   return (
     <div {...editorProps}>
       {data?.richText ? <div dangerouslySetInnerHTML={{__html: data?.text}}/> : data?.text}

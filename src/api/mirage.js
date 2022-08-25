@@ -83,7 +83,6 @@ let server = createServer({
   routes() {
     this.get("/path/:id", (schema, request) => {
       const path = request.params.id;
-      console.log("GET", { path });
       return schema.paths.find(path);
     });
 
@@ -95,7 +94,24 @@ let server = createServer({
       localStorage.setItem(`mirage-${comp.attrs.id}`, JSON.stringify({ ...comp.attrs, ...attrs }));
       return { ...attrs };
     });
+
+    this.post("/path/summary/:id", (schema, request) => {
+      const path = request.params.id;
+      const comp = schema.paths.find(path);
+      const attrs = JSON.parse(request.requestBody);
+      const parent = schema.paths.find("summary");
+      if (comp) {
+        comp.update({ ...attrs });
+      } else {
+        const id = "path/summary/" + path + "-" + new Date().getMilliseconds();
+        const text = attrs.text;
+        parent.items.push({ id, text });
+        localStorage.setItem(`mirage-summary`, JSON.stringify(parent));
+      }        
+      return { ...attrs };
+    });
   },
 });
 
 server.passthrough(`${REACT_APP_HOST_URI}/**`);
+server.passthrough("/path/summary/universal-**")
