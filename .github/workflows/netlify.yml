@@ -2,7 +2,7 @@
 name: Build and Deploy to Netlify
 on:
   push: 
-    branches: [ “deploy_workflow” ]
+    branches: [ “main” ]
 jobs:
   build:
     runs-on: ubuntu-18.04
