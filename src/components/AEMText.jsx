@@ -10,7 +10,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { EditorContext } from '../App';
 
-const AEMText = ({ path }) => {
+const AEMText = (props) => {
+  const { path, className } = props;
   const isInEditor = React.useContext(EditorContext);
   const editorProps = isInEditor && { 
     'data-cq-path': path,
@@ -28,7 +29,7 @@ const AEMText = ({ path }) => {
   }, [path]);
 
   return (
-    <div {...editorProps}>
+    <div {...editorProps} className={className}>
       {data?.richText ? <div dangerouslySetInnerHTML={{__html: data?.text}}/> : data?.text}
     </div>
   );
