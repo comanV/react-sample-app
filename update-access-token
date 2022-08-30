@@ -1,0 +1,37 @@
+#!/usr/bin/env zsh
+
+token=./auth/service-token.json
+aemcs=../aemcs-api-client-lib
+
+test ! -e $token && {
+  echo "[-] $token is missing"
+  exit
+}
+
+test ! -d $aemcs && {
+  git clone https://github.com/adobe/aemcs-api-client-lib $aemcs
+  cd $aemcs
+  npm i >/dev/null 2>&1
+  cd -;
+  echo
+}
+
+node $aemcs/cli.js exchange ./auth/service-token.json \
+  | grep -A 10 'post /ims/exchange/jwt' \
+  | grep -v ' post ' \
+  | jq -r .access_token \
+  | read token
+
+(
+  cat .env \
+    | grep -v REACT_APP_SERVICE_TOKEN
+
+  echo REACT_APP_SERVICE_TOKEN=$token
+) > .env-new
+
+mv .env{-new,}
+
+echo "[+] updated .env with token:"
+echo
+grep REACT_APP_SERVICE_TOKEN .env
+

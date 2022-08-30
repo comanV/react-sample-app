@@ -64,7 +64,6 @@ let server = createServer({
   routes() {
     this.get("/path/:id", (schema, request) => {
       const path = request.params.id;
-      console.log("GET", { path });
       return schema.paths.find(path);
     });
 

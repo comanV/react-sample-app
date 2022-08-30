@@ -9,7 +9,11 @@
 /coverage
 
 # production
-/build
+/build/*.*
+/build/static/*
+/build/fonts
+!/build/static/media
+!/build/index.html
 
 #auth_credentials
 /src/auth
@@ -28,3 +32,6 @@ yarn-error.log*
 
 # local Netlify folder
 .netlify
+
+# demo app
+auth/
