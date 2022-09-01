@@ -19,7 +19,7 @@ const Card = () => (
         <h4><AEMText path="/path/subtitle" /></h4>
         <h3><AEMText path="/path/card-title"/></h3>
         <p>
-          The Australian West coast is a camper’s heaven. 
+          The Australian West coast is a camper’s heaven!!!
           Endless miles of desert roads leading to secret beaches, 
           vast canyons and crystal clear rivers, and the very few people you 
           are likely to meet on your journey will be some of the most easy-going 
