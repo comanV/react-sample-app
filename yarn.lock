@@ -79,22 +79,22 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@aem-sites/universal-editor-cors@^0.0.18":
-  version "0.0.18"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.18.tgz#6b4e2d70ae393bbed3daac35ca422ea4938fac28"
-  integrity sha512-c2Q1CdKbHdb2vAT4gV6blfDJ8iMONabkomC6YHIS4eSauUKGup1LEEnMuLJrEjGzlenQQK4eFwx9D5k/79cAOw==
+"@aem-sites/universal-editor-cors@^0.0.19":
+  version "0.0.19"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.19.tgz#dc8d0bbbd563d7e83b278cf12047003ee0a6f3cb"
+  integrity sha512-q9sXDQvUcUs/qTVEqrjh3RrGQFP5SfVcD/0MqIRlbLxOMK6qOCZIlVAYu+5G07bOEQznYscm92mO5qoZKAtwSw==
   dependencies:
-    "@aem-sites/universal-editor-overlays" "^0.0.18"
+    "@aem-sites/universal-editor-overlays" "^0.0.19"
     penpal "^6.2.2"
     react "^18.2.0"
     react-dom "^18.2.0"
     react-penpal "^1.0.4"
     typescript "^4.7.4"
 
-"@aem-sites/universal-editor-overlays@^0.0.18":
-  version "0.0.18"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.18.tgz#0eedc02ce692e344d68a8813fe8d57e7db3e9c30"
-  integrity sha512-jS0G6IQDa0Qq37y/H/ZLhuTM9UsdlTtj/38MvTZ0+KPAxOWqu0Ee95VxPJvyut94Kd15nHPTeo1EzwOQhVui1g==
+"@aem-sites/universal-editor-overlays@^0.0.19":
+  version "0.0.19"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.19.tgz#99c31da2cc2750973d96b88302ccb3dc92a49cf3"
+  integrity sha512-AS7pTOfjkeYTVbtcDUdowNqHuRVfHmHCm8jZahqduZsO4ihMOfnhe/mY0hL/QX5p5mjAPvxuSP/MaricUf7rqA==
   dependencies:
     debounce "^1.2.1"
     react "^18.2.0"
