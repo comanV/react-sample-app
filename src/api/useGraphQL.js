@@ -21,17 +21,11 @@ function useGraphQL(query, path) {
     let [errorMessage, setErrors] = useState(null);
 
     useEffect(() => {
-        const accessTokenCookie = getCookie("accessToken");
-        if (accessTokenCookie) {
-            makeRequest(accessTokenCookie)
-        } else {
-            fetchAccessToken().then((accessToken) => {
-                if (accessToken) {
-                    makeRequest(accessToken);
-                    setCookie("accessToken", accessToken);
-                }
-            })
-        }
+        fetchAccessToken().then((accessToken) => {
+            if (accessToken) {
+                makeRequest(accessToken);
+            }
+        })
     }, [query, path]);
 
     function makeRequest(accessToken) {
@@ -91,38 +85,6 @@ async function fetchAccessToken() {
     } catch (error) {
         console.log("error", error);
     }
-}
-
-/**
- * set 12h cookie
- * @param {*} name
- * @param {*} value
- */
-function setCookie(name, value) {
-    const d = new Date();
-    d.setTime(d.getTime() + (12 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-/**
- * get cookie value by name
- * @param {*} name
- */
-function getCookie(name) {
-    let cookieName = name + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-            return c.substring(cookieName.length, c.length);
-        }
-    }
-    return "";
 }
 
 export default useGraphQL;
