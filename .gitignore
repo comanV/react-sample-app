@@ -15,6 +15,9 @@
 !/build/static/media
 !/build/index.html
 
+#auth_credentials
+/src/auth
+
 # misc
 .DS_Store
 .env.local
