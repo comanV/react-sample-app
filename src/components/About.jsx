@@ -9,7 +9,7 @@ const About = () => (
           to demonstrate functionality for Adobe Experience Manager. There is also a 
           corresponding tutorial that walks a developer through the development.  
           Special thanks to Lorenzo Buosi and Kilian Amendola who created the 
-          beautiful design for the WKND site. HOHOHOHOHO
+          beautiful design for the WKND site.
         </p>
     </div>
 );
