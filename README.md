@@ -15,12 +15,6 @@ Open [https://localhost:3000](https://localhost:3000) to view it in your browser
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-The script is also running `npm run prepare` command which creates the `.husky` folder if not created. 
-This folder contains the `pre-commit` script, which will be run before each commit. 
-The pre-commit script will build the project before each commit and will add the build bundle from `/build/index.html` to the commit.
-We expose this bundle to GitHub. This is happening due to the usage of internal artifactory packages (we cannot build the project on a deployment environment).
-The flow is that we build the application locally and deploy the bundle through GitHub workflow.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.
@@ -34,23 +28,38 @@ This command is executed automatically before each commit by the `pre-commit` sc
 In order to be able to access the data from the above-mentioned AEMCS instance, you need to provide the service credentials config on `src/auth/serviceCredentialsConfig.js` like this:
 
 `const serviceCredentials = {`
+
   `ok: true,`
-    `integration: {`
-       `.......`
-  `}`
+
+   `integration: {`
+
+   `},`
+
   `statusCode: 200`
+
 `};`
 
 `export default serviceCredentials;`
+
+## Automatic deployment flow
+
+The application uses the husky package (https://www.npmjs.com/package/husky), for adding a pre-commit script, located in the  `.husky` folder.
+The `pre-commit` script will be run before each commit. It will build the project and will add the build bundle from `build/index.html` to the commit.
+We expose this bundle to GitHub. This is happening due to the usage of internal artifactory packages (we cannot build the project on a deployment environment).
+
+The flow is that we build the application locally and deploy the bundle through GitHub workflow to https://ue-remote-app.adobe.net, on each PR merged to the `main` branch.
 
 ## Manual deployments
 
 ### Prerequisites
 Install Netlify CLI
+
 `npm install netlify-cli -g`
 
 Set the following environment variables in your terminal settings (for https://ue-remote-app.adobe.net):
+
 `NETLIFY_AUTH_TOKEN = <authentication token>`
+
 `NETLIFY_SITE_ID = <site id where to deploy>`
 
  ### Deploy commands

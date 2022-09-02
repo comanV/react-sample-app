@@ -29,13 +29,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run prepare && PORT=3000 HTTPS=true react-scripts start",
+    "start": "PORT=3000 HTTPS=true react-scripts start",
     "build": "react-scripts build && npx gulp",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node server/index.js",
-    "deploy": "./deploy/script.sh",
-    "prepare": "husky install"
+    "deploy": "./deploy/script.sh"
   },
   "eslintConfig": {
     "extends": [
