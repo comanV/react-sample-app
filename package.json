@@ -34,7 +34,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node server/index.js",
-    "deploy": "./deploy/script.sh"
+    "deploy": "./deploy/script.sh",
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": [
