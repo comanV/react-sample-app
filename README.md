@@ -1,12 +1,7 @@
-# Getting Started with Create React App
+# Local development
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Local development
-
-- AEM instance is running locally
-- WKND project is installed on the instance
-- Update [CORS config](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/graphql/quick-setup/local-sdk.html?lang=en#cors-config)
+- The app it's getting data from an AEMCS instance (https://author-p48068-e243163.adobeaemcloud.com);
+- WKND project is installed the instance;
 
 ## Available Scripts
 
@@ -15,62 +10,64 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [https://localhost:3000](https://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
+Utilize a gulp task to bundle all the JS and CSS files in the static build folder into the single main `index.html` file.
+This is useful for having the `index.html` bundle file automatically deployed on `https://ue-remote-app.adobe.net` when pushing new changes on the `main` branch.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This command is executed automatically before each commit by the `pre-commit` script.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Authentication
 
-### `npm run eject`
+In order to be able to access the data from the above-mentioned AEMCS instance, you need to provide the service credentials config on `src/auth/serviceCredentialsConfig.js` like this:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`const serviceCredentials = {`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  `ok: true,`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   `integration: {`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   `},`
 
-## Learn More
+  `statusCode: 200`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`};`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`export default serviceCredentials;`
 
-### Code Splitting
+## Automatic deployment flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The application uses the husky package (https://www.npmjs.com/package/husky), for adding a pre-commit script, located in the  `.husky` folder.
+The `pre-commit` script will be run before each commit. It will build the project and will add the build bundle from `build/index.html` to the commit.
+We expose this bundle to GitHub. This is happening due to the usage of internal artifactory packages (we cannot build the project on a deployment environment).
 
-### Analyzing the Bundle Size
+The flow is that we build the application locally and deploy the bundle through GitHub workflow to https://ue-remote-app.adobe.net, on each PR merged to the `main` branch.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Manual deployments
 
-### Making a Progressive Web App
+### Prerequisites
+Install Netlify CLI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+`npm install netlify-cli -g`
 
-### Advanced Configuration
+Set the following environment variables in your terminal settings (for https://ue-remote-app.adobe.net):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+`NETLIFY_AUTH_TOKEN = <authentication token>`
 
-### Deployment
+`NETLIFY_SITE_ID = <site id where to deploy>`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ ### Deploy commands
+Run in project root:
 
-### `npm run build` fails to minify
+`npm run deploy` - deploy the app at any point to a non-production link, e.g https://62ff59a019923a6f7aec439d--prismatic-panda-c194c0.netlify.app/.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm run deploy prod` - deploy the app to the production link https://ue-remote-app.adobe.net (this is usually not needed, the application is automatically deployed on every PR merged to the `main` branch).
+ 
+If case of permission issues, run `chmod +x deploy/script.sh` at the root of the project.
+

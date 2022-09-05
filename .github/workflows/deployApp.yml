@@ -1,5 +1,5 @@
-# Flow for deploying the app to Netlify (https://prismatic-panda-c194c0.netlify.app)
-name: Deploy onto Netlify
+# Flow for deploying the app to https://ue-remote-app.adobe.net
+name: Deploy to https://ue-remote-app.adobe.net
 on:
   push:
     branches:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Deploy to Netlify
+      - name: Deploy to https://ue-remote-app.adobe.net
         uses: nwtgck/actions-netlify@v1.2.3
         with:
           publish-dir: './build'

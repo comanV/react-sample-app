@@ -21,11 +21,17 @@ function useGraphQL(query, path) {
     let [errorMessage, setErrors] = useState(null);
 
     useEffect(() => {
-        fetchAccessToken().then((accessToken) => {
-            if (accessToken) {
-                makeRequest(accessToken);
-            }
-        })
+        const accessTokenFromStorage = sessionStorage.getItem('accessToken');
+        if (accessTokenFromStorage) {
+            makeRequest(accessTokenFromStorage);
+        } else {
+            fetchAccessToken().then((accessToken) => {
+                if (accessToken) {
+                    makeRequest(accessToken);
+                    sessionStorage.setItem('accessToken', accessToken);
+                }
+            })
+        }
     }, [query, path]);
 
     function makeRequest(accessToken) {
