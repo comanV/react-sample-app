@@ -2,10 +2,19 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "PORT=3000 HTTPS=true react-scripts start",
+    "build": "react-scripts build && npx gulp",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node server/index.js",
+    "deploy": "./deploy/script.sh",
+    "postinstall": "husky install"
+  },
   "dependencies": {
     "@adobe/aem-headless-client-js": "^3.1.0",
     "@adobe/aem-headless-client-nodejs": "^1.1.0",
-    "@aem-sites/universal-editor-cors": "^0.0.21",
+    "@aem-sites/universal-editor-cors": "file:.yalc/@aem-sites/universal-editor-cors",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -28,14 +37,8 @@
     "util": "^0.12.4",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "PORT=3000 HTTPS=true react-scripts start",
-    "build": "react-scripts build && npx gulp",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "node server/index.js",
-    "deploy": "./deploy/script.sh",
-    "postinstall": "husky install"
+  "devDependencies": {
+    "husky": "^8.0.1"
   },
   "eslintConfig": {
     "extends": [
@@ -54,8 +57,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "husky": "^8.0.1"
   }
 }
