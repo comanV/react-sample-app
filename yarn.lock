@@ -79,23 +79,33 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@aem-sites/universal-editor-cors@^0.0.21":
-  version "0.0.21"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.21.tgz#f25023d1d029906f5deca0955033fa2ef20d0dfa"
-  integrity sha512-bXP76LgYlKcbZC9dIWAgf9FosXO/n1iS5rAjS8TF2yNWyGrg/hwIck1FcFuAzqZWKgtMDx7kbaxSSYZKnMbkzg==
+"@aem-sites/universal-editor-commons@^0.0.1":
+  version "0.0.1"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-commons/-/@aem-sites/universal-editor-commons-0.0.1.tgz#bcee40ac520a59274f69afafe52470940d295f07"
+  integrity sha512-4e42DtOMgNRCBKkZ3wCDMOodwNSufjRYVEwZWU5ktXKCsbrwHZSUNnW+Azgn3ZYI6iGXuOq5lu/Xbt+nbm1WYg==
   dependencies:
-    "@aem-sites/universal-editor-overlays" "^0.0.21"
+    react "^18.2.0"
+    typescript "^4.7.4"
+
+"@aem-sites/universal-editor-cors@^0.0.22":
+  version "0.0.22"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.22.tgz#2ec3989a8430ad3a59dbdfdff37cff73e57675d0"
+  integrity sha512-625zzjIWBDxDGLUoC9MOHD08wbEZoZawvnaSHLb9/ONynf2DFzlpx5qqWmLkYCoRQHFrdhZvlokJczNJUhmU0g==
+  dependencies:
+    "@aem-sites/universal-editor-commons" "^0.0.1"
+    "@aem-sites/universal-editor-overlays" "^0.0.22"
     penpal "^6.2.2"
     react "^18.2.0"
     react-dom "^18.2.0"
     react-penpal "^1.0.4"
     typescript "^4.7.4"
 
-"@aem-sites/universal-editor-overlays@^0.0.21":
-  version "0.0.21"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.21.tgz#e48edac414c2e58a23e281816c47711a53c96b13"
-  integrity sha512-tDha4nLrxyEn7m8PRhAsG74PiU0dDZOxZzDeGi2REbavhmxoX3lnJqf0mInjB3D5Z09Pfs+qr3IxG5H+K3yhZQ==
+"@aem-sites/universal-editor-overlays@^0.0.22":
+  version "0.0.22"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.22.tgz#9ab1e5823d04e3e540b427859e1180617a2575e6"
+  integrity sha512-VKZ0YVonW9zZLtbZobZDj2tOc9EZVbJBvr62Hc2YSBF3AYT/O+3fNae656MQLqI01MmM+anLr8pjn1voYWlyYA==
   dependencies:
+    "@aem-sites/universal-editor-commons" "^0.0.1"
     debounce "^1.2.1"
     react "^18.2.0"
     react-dom "^18.2.0"
