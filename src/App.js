@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React from "react";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import logo from "./images/wknd-logo-dk.svg";
@@ -26,8 +26,6 @@ import "./api/mirage.js";
 //     </div>
 //   );
 // }
-
-export const EditorContext = createContext(null);
 
 function App() {
   return (
