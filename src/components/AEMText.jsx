@@ -6,13 +6,12 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React from 'react';
-import { useEffect } from 'react';
-import { EditorContext } from '../App';
+import { useEditorContext } from '@aem-sites/universal-editor-cors';
+import React, { useEffect } from 'react';
 
 const AEMText = (props) => {
   const { path, className } = props;
-  const isInEditor = React.useContext(EditorContext);
+  const { isInEditor } = useEditorContext();
   const editorProps = isInEditor && { 
     'data-cq-path': path,
     'data-cq-label': "Text" 

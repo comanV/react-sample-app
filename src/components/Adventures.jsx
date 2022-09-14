@@ -5,18 +5,18 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useContext } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import useGraphQL from '../api/useGraphQL';
 import Error from './Error';
 import Loading from './Loading';
 import "./Adventures.scss";
+import { useEditorContext } from '@aem-sites/universal-editor-cors';
 
-import { EditorContext } from "../App";
 const { REACT_APP_PUBLISH_URI } =process.env;
 
 function AdventureItem(props) {
-  const isInEditor = useContext(EditorContext);
+  const { isInEditor } = useEditorContext();
 
   //Must have title, path, and image
   if(!props || !props._path || !props.title || !props.primaryImage ) {

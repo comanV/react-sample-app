@@ -5,7 +5,7 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, useNavigate, useParams} from "react-router-dom";
 import backIcon from '../images/icon-close.svg';
 import Error from './Error';
@@ -13,7 +13,7 @@ import Loading from './Loading';
 import { mapJsonRichText } from '../utils/renderRichText';
 import './AdventureDetail.scss';
 import useGraphQL from '../api/useGraphQL';
-import { EditorContext } from "../App";
+import { useEditorContext } from '@aem-sites/universal-editor-cors';
 
 
 function ArticleDetail() {
@@ -54,7 +54,7 @@ function ArticleDetailRender({_path, title,
     featuredImage, slug,
                                 main,
                                 authorFragment}) {
-    const isInEditor = useContext(EditorContext);
+    const { isInEditor } = useEditorContext();
     const editorProps = isInEditor && { 'data-cq-ref': _path };
   
     return (<div {...editorProps}>
