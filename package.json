@@ -14,7 +14,7 @@
   "dependencies": {
     "@adobe/aem-headless-client-js": "^3.1.0",
     "@adobe/aem-headless-client-nodejs": "^1.1.0",
-    "@aem-sites/universal-editor-cors": "^0.0.23",
+    "@aem-sites/universal-editor-cors": "file:.yalc/@aem-sites/universal-editor-cors",
     "@aem-sites/universal-editor-overlays": "^0.0.23",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -36,7 +36,8 @@
     "sass": "^1.53.0",
     "stream-browserify": "^3.0.0",
     "util": "^0.12.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.1.1"
   },
   "devDependencies": {
     "husky": "^8.0.1"

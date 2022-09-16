@@ -87,10 +87,8 @@
     react "^18.2.0"
     typescript "^4.7.4"
 
-"@aem-sites/universal-editor-cors@^0.0.23":
+"@aem-sites/universal-editor-cors@file:.yalc/@aem-sites/universal-editor-cors":
   version "0.0.23"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.23.tgz#dedae28d614fd1fbfff0ad0fc1960dee6d121c52"
-  integrity sha512-wNl4PVofY065gURaEQT9yxeY/CzaTxoXVjr/22BisLcpUIpfiwPSmuAwWTx3QVll9D+okbkZrpZbiyKIbN1aDQ==
   dependencies:
     "@aem-sites/universal-editor-commons" "^0.0.1"
     "@aem-sites/universal-editor-overlays" "^0.0.23"
@@ -99,6 +97,7 @@
     react-dom "^18.2.0"
     react-penpal "^1.0.4"
     typescript "^4.7.4"
+    zustand "^4.1.1"
 
 "@aem-sites/universal-editor-overlays@^0.0.23":
   version "0.0.23"
@@ -12602,6 +12601,11 @@ use-debounce@^8.0.3:
   resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-8.0.3.tgz#2b4d7d7307a9397acb6520b7a1dea14c2c3d108c"
   integrity sha512-BV7xuVy4LS0HtzHb23sDwAjfNjdBWlc4oyjJLcdCoVAjPv1+hroZYsCXX4VfRJT+8sLaqCftBOO8l7CMQtn9Gw==
 
+use-sync-external-store@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
+  integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
@@ -13414,3 +13418,10 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zustand@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.1.1.tgz#5a61cc755a002df5f041840a414ae6e9a99ee22b"
+  integrity sha512-h4F3WMqsZgvvaE0n3lThx4MM81Ls9xebjvrABNzf5+jb3/03YjNTSgZXeyrvXDArMeV9untvWXRw1tY+ntPYbA==
+  dependencies:
+    use-sync-external-store "1.2.0"

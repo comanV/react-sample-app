@@ -5,7 +5,7 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams} from "react-router-dom";
 // import CurrencyFormat from 'react-currency-format';
 import backIcon from '../images/icon-close.svg';
@@ -14,7 +14,7 @@ import Loading from './Loading';
 import { mapJsonRichText } from '../utils/renderRichText';
 import './AdventureDetail.scss';
 import useGraphQL from '../api/useGraphQL';
-import { EditorContext } from "../App";
+import { getEditorContext } from '@aem-sites/universal-editor-cors';
 
 
 function AdventureDetail() {
@@ -65,9 +65,14 @@ function AdventureDetailRender({_path, title,
                                 description,
                                 itinerary,
                                 contributor, references}) {
-    const isInEditor = useContext(EditorContext);
+    const [isInEditor,setIsInEditor] = useState(false);
     const editorProps = isInEditor && { 'data-cq-ref': _path };
-  
+
+    useEffect(() => {
+        getEditorContext({ isInEditor: setIsInEditor });
+    }, []);
+    
+
     return (<div {...editorProps}>
             <h1 className="adventure-detail-title">{title}</h1>
             <div className="adventure-detail-info">
