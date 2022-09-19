@@ -5,7 +5,7 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useNavigate, useParams} from "react-router-dom";
 // import CurrencyFormat from 'react-currency-format';
 import backIcon from '../images/icon-close.svg';
@@ -66,7 +66,7 @@ function AdventureDetailRender({_path, title,
                                 itinerary,
                                 contributor, references}) {
     const [isInEditor,setIsInEditor] = useState(false);
-    const editorProps = isInEditor && { 'data-cq-ref': _path };
+    const editorProps = useMemo(() => isInEditor && { 'data-cq-ref': _path }, [isInEditor, _path]);
 
     useEffect(() => {
         getEditorContext({ isInEditor: setIsInEditor });
