@@ -6,16 +6,16 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { getEditorContext } from '@aem-sites/universal-editor-cors';
 
 const AEMText = (props) => {
   const { path, className } = props;
   const [isInEditor,setIsInEditor] = useState(false);
-  const editorProps = isInEditor && { 
+  const editorProps = useMemo(() => isInEditor && { 
     'data-cq-path': path,
     'data-cq-label': "Text" 
-  };
+  }, [isInEditor, path]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });

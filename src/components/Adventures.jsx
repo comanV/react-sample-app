@@ -5,7 +5,7 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {Link} from 'react-router-dom';
 import useGraphQL from '../api/useGraphQL';
 import Error from './Error';
@@ -17,6 +17,7 @@ const { REACT_APP_PUBLISH_URI } =process.env;
 
 function AdventureItem(props) {
   const [isInEditor,setIsInEditor] = useState(false);
+  const editorProps = useMemo(() => isInEditor && { 'data-cq-ref': props?._path }, [isInEditor, props._path]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
@@ -26,7 +27,6 @@ function AdventureItem(props) {
   if(!props || !props._path || !props.title || !props.primaryImage ) {
     return null;
   }
-  const editorProps = isInEditor && { 'data-cq-ref': props._path };
 
   return (
          <li className="adventure-item" {...editorProps}>

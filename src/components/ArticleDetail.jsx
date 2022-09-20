@@ -5,7 +5,7 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Link, useNavigate, useParams} from "react-router-dom";
 import backIcon from '../images/icon-close.svg';
 import Error from './Error';
@@ -56,7 +56,7 @@ function ArticleDetailRender({_path, title,
                                 authorFragment}) {
 
     const [isInEditor,setIsInEditor] = useState(false);
-    const editorProps = isInEditor && { 'data-cq-ref': _path };
+    const editorProps = useMemo(() => isInEditor && { 'data-cq-ref': _path }, [isInEditor, _path]);
     
     useEffect(() => {
         getEditorContext({ isInEditor: setIsInEditor });

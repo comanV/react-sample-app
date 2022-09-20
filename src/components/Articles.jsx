@@ -6,7 +6,7 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import useGraphQL from '../api/useGraphQL';
 import {Link} from 'react-router-dom';
 import Error from './Error';
@@ -16,7 +16,7 @@ import { getEditorContext } from '@aem-sites/universal-editor-cors';
 
 const Article = ({ _path, title, authorFragment, slug }) => {
   const [isInEditor,setIsInEditor] = useState(false);
-  const editorProps = isInEditor && { 'data-cq-ref': _path };
+  const editorProps = useMemo(() => isInEditor && { 'data-cq-ref': _path }, [isInEditor, _path]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
