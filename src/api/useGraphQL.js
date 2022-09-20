@@ -55,6 +55,7 @@ function useGraphQL(query, path) {
             })
             .catch((error) => {
                 setErrors(error);
+                sessionStorage.removeItem('accessToken');
             });
     }
 
@@ -74,22 +75,21 @@ function mapErrors(errors) {
  */
 async function fetchAccessToken() {
     const url = "https://snazzy-tulumba-547f0e.netlify.app/.netlify/functions/api/accessToken";
-    try {
-        const response = await fetch(url, {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                config: serviceCredentialsConfig
-            })
-
-        });
+    const response = await fetch(url, {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            config: serviceCredentialsConfig
+        })
+    });
+    if (!response.ok) {
+        console.error("Failed to get the access token");
+    } else {
         const json = await response.json();
         return json.accessToken;
-    } catch (error) {
-        console.log("error", error);
     }
 }
 
