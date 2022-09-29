@@ -26,10 +26,10 @@ const Article = ({ _path, title, authorFragment, slug }) => {
     <li className="article-item">
       <div itemScope {...editorProps}>
         <Link to={`/articles/article:${slug}`}>
-          <h3 data-id="title" itemProp="title" type="text">{title}</h3>  
+          <h3 data-id="title" itemProp="title" itemType="text">{title}</h3>  
         </Link>               
         <img className="article-item-image" src={authorFragment?.profilePicture._path} 
-                alt={title} itemProp="profilePicture" type="image"/>
+                alt={title} itemProp="profilePicture" itemType="image"/>
         <p>{`By ${authorFragment.firstName} ${authorFragment.lastName}`}</p>
       </div>
       <p className="article-content">

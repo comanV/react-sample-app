@@ -63,7 +63,7 @@ function ArticleDetailRender({_path, title,
     }, []);
   
     return (<div itemScope {...editorProps}>
-            <h1 className="adventure-detail-title" itemProp="title" type="text">{title}</h1>
+            <h1 className="adventure-detail-title" itemProp="title" itemType="text">{title}</h1>
             <div className="adventure-detail-info">
                 <Contributer {...authorFragment} />
                 <Link to={`/articles/article:${slug}/aboutus`}>About Us</Link>
