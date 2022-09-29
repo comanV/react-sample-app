@@ -10,12 +10,12 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { getEditorContext } from '@aem-sites/universal-editor-cors';
 
 const AEMText = (props) => {
-  const { path, className } = props;
+  const { itemID, className } = props;
   const [isInEditor,setIsInEditor] = useState(false);
   const editorProps = useMemo(() => isInEditor && { 
-    'data-cq-path': path,
-    'data-cq-label': "Text" 
-  }, [isInEditor, path]);
+    itemID,
+    itemType: "type/text" 
+  }, [isInEditor, itemID]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
@@ -23,13 +23,13 @@ const AEMText = (props) => {
 
   const [data,setData] = React.useState({});
   useEffect(() => {
-    if(!path) return;
-    fetch(path)
+    if(!itemID) return;
+    fetch(itemID)
       .then((res) => res.json())
       .then((json) => {
         setData(json.paths);
       })
-  }, [path]);
+  }, [itemID]);
 
   return (
     <div {...editorProps} className={className}>

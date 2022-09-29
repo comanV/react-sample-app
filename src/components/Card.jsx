@@ -15,9 +15,9 @@ const Card = () => (
   <>
     <article className="card">
       <img src={image} alt="Sample" />
-      <div>
-        <h4><AEMText path="/path/subtitle" /></h4>
-        <h3><AEMText path="/path/card-title"/></h3>
+      <div id="test">
+        <h4><AEMText itemID="/path/subtitle"/></h4>
+        <h3><AEMText itemID="/path/card-title"/></h3>
         <p>
           The Australian West coast is a camper’s heaven!!!
           Endless miles of desert roads leading to secret beaches, 
@@ -26,7 +26,7 @@ const Card = () => (
           characters you will find anywhere in the world.
         </p>
         <Link to={`/articles`}>
-          <button>Show More</button>
+          <button itemID="/path/button" itemType="urn:fcs:type/button">Show More</button>
         </Link>
       </div>
     </article>       
