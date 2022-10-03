@@ -8,6 +8,7 @@ import Articles from "./components/Articles";
 import ArticleDetail from "./components/ArticleDetail";
 import About from "./components/About";
 import "./api/mirage.js";
+import ContentSample from "./components/ContentSample";
 
 // import { EditorProvider } from '@aem-sites/universal-editor-react';
 
@@ -39,6 +40,7 @@ function App() {
           <Routes>
             <Route path="/adventure:slug" element={<AdventureDetail />} />
             <Route path="/" element={<Home />} />
+            <Route path="/article" element={<ContentSample />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/articles/article:slug" element={<ArticleDetail />} />
             <Route path="/articles/article:slug/aboutus" element={<About />} />

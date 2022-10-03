@@ -10,17 +10,20 @@ import Adventures from './Adventures';
 import AEMText from './AEMText';
 import Card from './Card';
 import Summary from './Summary';
-
+import {Link} from 'react-router-dom';
 /***
  * Displays a grid of current adventures
  */
  function Home() {
     return (
       <div className="Home">
+        <Link to={`/article`}>
+          <p>Go to Content Services Sample</p>
+        </Link>
         <Card/>
         <hr/>
         <h2>
-          <AEMText className="customfont" path="/path/main-title"/>
+          <AEMText className="customfont" itemID="/path/main-title"/>
         </h2>
         <Adventures />
         <hr/>

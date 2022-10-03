@@ -17,7 +17,7 @@ const { REACT_APP_PUBLISH_URI } =process.env;
 
 function AdventureItem(props) {
   const [isInEditor,setIsInEditor] = useState(false);
-  const editorProps = useMemo(() => isInEditor && { 'data-cq-ref': props?._path }, [isInEditor, props._path]);
+  const editorProps = useMemo(() => isInEditor && { itemID: props?._path, itemType: "type/fragment" }, [isInEditor, props._path]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
@@ -29,16 +29,16 @@ function AdventureItem(props) {
   }
 
   return (
-         <li className="adventure-item" {...editorProps}>
+         <li className="adventure-item" itemScope {...editorProps}>
           <Link to={`/adventure:${props.slug}`}>
             <img className="adventure-item-image" src={`${REACT_APP_PUBLISH_URI}${props.primaryImage._path}`} 
-                alt={props.title} data-id="primaryImage"/>
+                alt={props.title} itemProp="primaryImage" itemType="image" />
           </Link>
           <div className="adventure-item-length-price">
-            <div className="adventure-item-length" data-id="tripLength">{props.tripLength}</div>
-            <div className="adventure-item-price" data-id="price">${props.price}</div>
+            <div className="adventure-item-length" itemProp="tripLength" itemType="text">{props.tripLength}</div>
+            <div className="adventure-item-price" itemProp="price" itemType="text">${props.price}</div>
           </div>
-          <div className="adventure-item-title" data-id="title">{props.title}</div>
+          <div className="adventure-item-title" itemProp="title" itemType="text">{props.title}</div>
       </li>
   );
 }

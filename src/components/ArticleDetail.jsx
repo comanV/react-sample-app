@@ -56,14 +56,14 @@ function ArticleDetailRender({_path, title,
                                 authorFragment}) {
 
     const [isInEditor,setIsInEditor] = useState(false);
-    const editorProps = useMemo(() => isInEditor && { 'data-cq-ref': _path }, [isInEditor, _path]);
+    const editorProps = useMemo(() => isInEditor && { itemID: _path, itemType: "text/fragment" }, [isInEditor, _path]);
     
     useEffect(() => {
         getEditorContext({ isInEditor: setIsInEditor });
     }, []);
   
-    return (<div {...editorProps}>
-            <h1 className="adventure-detail-title">{title}</h1>
+    return (<div itemScope {...editorProps}>
+            <h1 className="adventure-detail-title" itemProp="title" itemType="text">{title}</h1>
             <div className="adventure-detail-info">
                 <Contributer {...authorFragment} />
                 <Link to={`/articles/article:${slug}/aboutus`}>About Us</Link>

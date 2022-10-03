@@ -16,7 +16,7 @@ import { getEditorContext } from '@aem-sites/universal-editor-cors';
 
 const Article = ({ _path, title, authorFragment, slug }) => {
   const [isInEditor,setIsInEditor] = useState(false);
-  const editorProps = useMemo(() => isInEditor && { 'data-cq-ref': _path }, [isInEditor, _path]);
+  const editorProps = useMemo(() => isInEditor && { itemID: _path, itemType: "type/fragment" }, [isInEditor, _path]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
@@ -24,12 +24,12 @@ const Article = ({ _path, title, authorFragment, slug }) => {
 
   return (
     <li className="article-item">
-      <div {...editorProps}>
+      <div itemScope {...editorProps}>
         <Link to={`/articles/article:${slug}`}>
-          <h3 data-id="title">{title}</h3>  
+          <h3 data-id="title" itemProp="title" itemType="text">{title}</h3>  
         </Link>               
         <img className="article-item-image" src={authorFragment?.profilePicture._path} 
-                alt={title} data-id="profilePicture"/>
+                alt={title} itemProp="profilePicture" itemType="image"/>
         <p>{`By ${authorFragment.firstName} ${authorFragment.lastName}`}</p>
       </div>
       <p className="article-content">

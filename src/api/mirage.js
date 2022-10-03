@@ -1,5 +1,5 @@
 import { createServer, Model } from "miragejs";
-const { REACT_APP_HOST_URI } = process.env;
+const { REACT_APP_HOST_URI, REACT_APP_IBIZA_URL } = process.env;
 
 const getData = (fallback) => {
   const current = localStorage.getItem(`mirage-${fallback.id}`);
@@ -79,4 +79,5 @@ let server = createServer({
 });
 
 server.passthrough(`${REACT_APP_HOST_URI}/**`);
+server.passthrough(`${REACT_APP_IBIZA_URL}/**`);
 server.passthrough("https://snazzy-tulumba-547f0e.netlify.app/**");

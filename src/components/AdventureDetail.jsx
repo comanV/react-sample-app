@@ -66,34 +66,30 @@ function AdventureDetailRender({_path, title,
                                 itinerary,
                                 contributor, references}) {
     const [isInEditor,setIsInEditor] = useState(false);
-    const editorProps = useMemo(() => isInEditor && { 'data-cq-ref': _path }, [isInEditor, _path]);
+    const editorProps = useMemo(() => isInEditor && { itemID: _path, itemType: "type/fragment" }, [isInEditor, _path]);
 
     useEffect(() => {
         getEditorContext({ isInEditor: setIsInEditor });
     }, []);
     
 
-    return (<div {...editorProps}>
+    return (<div {...editorProps} itemScope>
             <h1 className="adventure-detail-title">{title}</h1>
             <div className="adventure-detail-info">
                 <div className="adventure-detail-info-label">Activity</div>
-                <div className="adventure-detail-info-description">{activity}</div>
+                <div className="adventure-detail-info-description" itemProp='activity' itemType="text">{activity}</div>
                 <div className="adventure-detail-info-label">Type</div>
-                <div className="adventure-detail-info-description">{adventureType}</div>
+                <div className="adventure-detail-info-description" itemProp='adventureType' itemType="text">{adventureType}</div>
                 <div className="adventure-detail-info-label">Trip Length</div>
-                <div className="adventure-detail-info-description">{tripLength}</div>
+                <div className="adventure-detail-info-description" itemProp='tripLength' itemType="text">{tripLength}</div>
                 <div className="adventure-detail-info-label">Group Size</div>
-                <div className="adventure-detail-info-description">{groupSize}</div>
+                <div className="adventure-detail-info-description" itemProp='groupSize' itemType="text">{groupSize}</div>
                 <div className="adventure-detail-info-label">Difficulty</div>
-                <div className="adventure-detail-info-description">{difficulty}</div>
-                <div className="adventure-detail-info-label">Price</div>
-                <div className="adventure-detail-info-description">
-                    '$' + price
-                </div>
+                <div className="adventure-detail-info-description" itemProp='difficulty' itemType="text">{difficulty}</div>
             </div>
             <div className="adventure-detail-content">
                 <img className="adventure-detail-primaryimage"
-                    src={primaryImage._path} alt={title}/>
+                    src={primaryImage._path} alt={title} itemType="image"/>
             <div>{mapJsonRichText(description.json, customRenderOptions(references))}</div>
             <h2>Itinerary</h2>
             <hr />
