@@ -16,7 +16,7 @@ import { getEditorContext } from '@aem-sites/universal-editor-cors';
 
 const Article = ({ _path, title, authorFragment, slug }) => {
   const [isInEditor,setIsInEditor] = useState(false);
-  const editorProps = useMemo(() => isInEditor && { itemID: _path, itemType: "type/fragment" }, [isInEditor, _path]);
+  const editorProps = useMemo(() => isInEditor && { itemID: _path, itemType: "urn:fcs:type/fragment" }, [isInEditor, _path]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
