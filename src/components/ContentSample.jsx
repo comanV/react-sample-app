@@ -6,7 +6,7 @@ const { REACT_APP_IBIZA_URL, REACT_APP_API_KEY } = process.env;
 const ContentSample = () => {
   const [content, setContent] = React.useState();
   useEffect(() => {
-    fetch(REACT_APP_IBIZA_URL + '/editing/unique-session-id/articles.html', {
+    fetch(REACT_APP_IBIZA_URL + '/editing/1234/articles.html', {
       headers: {
         "x-api-key": REACT_APP_API_KEY
       }
