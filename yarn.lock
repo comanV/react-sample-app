@@ -87,24 +87,23 @@
     react "^18.2.0"
     typescript "~4.7.2"
 
-"@aem-sites/universal-editor-cors@^0.0.35":
-  version "0.0.35"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.35.tgz#6286dcaaecf27411848495b80f82ae72746eb7ab"
-  integrity sha512-DOa0vdYPU4kDEI3rGsDStcOl17rlLuiMNSQLZdqfnltdfqwR3oAasIX5DgFh9tlRproP6jHo9Fs7etLvJ7KVqw==
+"@aem-sites/universal-editor-cors@^0.0.38":
+  version "0.0.38"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.38.tgz#da1648d76f95a7f6333010fd5e8ab89f815234d9"
+  integrity sha512-4AqLhXFqvCa5Ev96SDrG/9G/yZhjMuRHkGHremDl4L4Vl/4pZuf5VYQlZ43Yofoe12q9shGsx6fgeF57NiX9rA==
   dependencies:
     "@aem-sites/universal-editor-commons" "^0.0.11"
-    "@aem-sites/universal-editor-overlays" "^0.0.35"
+    "@aem-sites/universal-editor-overlays" "^0.0.37"
     penpal "^6.2.2"
     react "^18.2.0"
     react-dom "^18.2.0"
-    react-penpal "^1.0.4"
     typescript "~4.7.2"
     zustand "^4.1.1"
 
-"@aem-sites/universal-editor-overlays@^0.0.35":
-  version "0.0.35"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.35.tgz#76b4d150d193c575f904826f11c50262b9285f90"
-  integrity sha512-Kjd9R2vt39GqaC4C8E0Aidff1YKFgWH/y8xWvhDe95FwxCg9i4R7KNSF0KJkj5EATwNWnpZtIXcjeuu6lPVUDw==
+"@aem-sites/universal-editor-overlays@^0.0.37":
+  version "0.0.37"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.37.tgz#f182d707a84607b4924eaad3ae5010de8ed48d97"
+  integrity sha512-f9EmAC7mVYqCpZqAAxcT+QHf5Cwm2IsY1ko+ZuR1VglkxwZFGb3KF1bA7eDE8ZIvZX/sgH5Zetr6wFXHlpbwOA==
   dependencies:
     "@aem-sites/universal-editor-commons" "^0.0.11"
     debounce "^1.2.1"
