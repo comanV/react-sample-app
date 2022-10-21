@@ -9,8 +9,19 @@ it.
 import React, { useEffect, useState, useMemo } from 'react';
 import { getEditorContext } from '@aem-sites/universal-editor-cors';
 
+const { REACT_APP_HOST_URI, REACT_APP_SERVICE_TOKEN } = process.env;
+
+const fetchFromAEM = async (path) => {
+  const data = await fetch(`${REACT_APP_HOST_URI}${path}.model.json`, {
+    headers: {
+      Authorization: "Bearer " + REACT_APP_SERVICE_TOKEN
+    }
+  });
+  return data.json();
+};
+
 const AEMText = (props) => {
-  const { itemID, className } = props;
+  const { itemID, className, isAEM } = props;
   const [isInEditor,setIsInEditor] = useState(false);
   const editorProps = useMemo(() => isInEditor && { 
     itemID,
@@ -24,16 +35,20 @@ const AEMText = (props) => {
   const [data,setData] = React.useState({});
   useEffect(() => {
     if(!itemID) return;
-    fetch(itemID)
+    if(isAEM) {
+      fetchFromAEM(itemID).then(data => setData(data));
+    } else {
+      fetch(itemID)
       .then((res) => res.json())
       .then((json) => {
         setData(json.paths);
       })
-  }, [itemID]);
+    }  
+  }, [itemID, isAEM]);
 
   return (
     <div {...editorProps} className={className}>
-      {data?.richText ? <div dangerouslySetInnerHTML={{__html: data?.text}}/> : data?.text}
+      {data?.text}
     </div>
   );
 };
