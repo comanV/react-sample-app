@@ -65,9 +65,13 @@ $adventureItemHeightMobile: 250px;
     border-radius: 4px;
     font-family: sans-serif;
     display: flex;
+    line-height: 1.5em;
     img {
       width: 400px;
       margin: 0 20px;
+    }
+    button {
+      margin-top: 10px;
     }
   }
 
