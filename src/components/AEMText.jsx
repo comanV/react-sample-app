@@ -8,15 +8,11 @@ it.
 */
 import React, { useEffect, useState, useMemo } from 'react';
 import { getEditorContext } from '@aem-sites/universal-editor-cors';
-
-const { REACT_APP_HOST_URI, REACT_APP_SERVICE_TOKEN } = process.env;
+const { REACT_APP_IO_URL } =process.env;
 
 const fetchFromAEM = async (path) => {
-  const data = await fetch(`${REACT_APP_HOST_URI}${path}.model.json`, {
-    headers: {
-      Authorization: "Bearer " + REACT_APP_SERVICE_TOKEN
-    }
-  });
+  const url = `${REACT_APP_IO_URL}content?path=${path}`;
+  const data = await fetch(url);
   return data.json();
 };
 
@@ -36,7 +32,7 @@ const AEMText = (props) => {
   useEffect(() => {
     if(!itemID) return;
     if(isAEM) {
-      fetchFromAEM(itemID).then(data => setData(data));
+      fetchFromAEM(itemID).then(({ data }) => setData(data));
     } else {
       fetch(itemID)
       .then((res) => res.json())

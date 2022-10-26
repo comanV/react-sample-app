@@ -15,16 +15,10 @@ const Card = () => (
   <>
     <article className="card">
       <img src={image} alt="Sample" />
-      <div id="test">
+      <div>
         <h4><AEMText itemID="/path/subtitle"/></h4>
         <h3><AEMText itemID="/path/card-title"/></h3>
-        <p>
-          The Australian West coast is a camper’s heaven!!!
-          Endless miles of desert roads leading to secret beaches, 
-          vast canyons and crystal clear rivers, and the very few people you 
-          are likely to meet on your journey will be some of the most easy-going 
-          characters you will find anywhere in the world.
-        </p>
+        <div class="card-text"><AEMText itemID="/content/wknd/us/en/magazine/western-australia/jcr:content/root/container/container/contentfragment/par0/text" isAEM="true"/></div>
         <Link to={`/articles`}>
           <button itemID="/path/button" itemType="urn:fcs:type/button">Show More</button>
         </Link>

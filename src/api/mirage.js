@@ -1,5 +1,5 @@
 import { createServer, Model } from "miragejs";
-const { REACT_APP_HOST_URI, REACT_APP_IBIZA_URL } = process.env;
+const { REACT_APP_HOST_URI, REACT_APP_IBIZA_URL, REACT_APP_IO_URL } = process.env;
 
 const getData = (fallback) => {
   const current = localStorage.getItem(`mirage-${fallback.id}`);
@@ -43,6 +43,15 @@ let server = createServer({
         appliedCssClassNames: "cmp-title--underline",
       })
     );
+    server.create(
+      "path",
+      getData({
+        id: "card-desc",
+        linkDisabled: false,
+        text: "The Australian West coast is a camper’s heaven!! Endless miles of desert roads leading to secret beaches,vast canyons and crystal clear rivers, and the very few people you are likely to meet on your journey will be some of the most easy-going characters you will find anywhere in the world.",
+        ":type": "wknd/components/text",
+      })
+    );
   },
   routes() {
     this.get("/path/:id", (schema, request) => {
@@ -64,3 +73,4 @@ let server = createServer({
 server.passthrough(`${REACT_APP_HOST_URI}/**`);
 server.passthrough(`${REACT_APP_IBIZA_URL}/**`);
 server.passthrough("https://snazzy-tulumba-547f0e.netlify.app/**");
+server.passthrough(`${REACT_APP_IO_URL}**`);
