@@ -14,8 +14,8 @@ const Summary = () => (
     <div className="card">
       <div>
       <h3>About US</h3>
-      <p><i><AEMText itemID="/content/wknd/us/en/about-us/jcr:content/root/container/text_359993709" isAEM="true"/></i></p>
-      <AEMText itemID="/content/wknd/us/en/faqs/jcr:content/root/container/container/text" isAEM="true" />
+      <p><i><AEMText itemID="urn:aemconnection:/content/wknd/us/en/about-us/jcr:content/root/container/text_359993709" isAEM="true"/></i></p>
+      <AEMText itemID="urn:aemconnection:/content/wknd/us/en/faqs/jcr:content/root/container/container/text" isAEM="true" />
       </div>
       <img src={image} alt="footer" />        
     </div>
