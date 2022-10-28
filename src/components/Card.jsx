@@ -18,7 +18,7 @@ const Card = () => (
       <div>
         <h4><AEMText itemID="/path/subtitle"/></h4>
         <h3><AEMText itemID="/path/card-title"/></h3>
-        <div class="card-text"><AEMText itemID="/content/wknd/us/en/magazine/western-australia/jcr:content/root/container/container/contentfragment/par0/text" isAEM="true"/></div>
+        <div class="card-text"><AEMText itemID="urn:aemconnection:/content/wknd/us/en/magazine/western-australia/jcr:content/root/container/container/contentfragment/par0/text" isAEM="true"/></div>
         <Link to={`/articles`}>
           <button itemID="/path/button" itemType="urn:fcs:type/button">Show More</button>
         </Link>

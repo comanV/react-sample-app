@@ -11,7 +11,7 @@ import { getEditorContext } from '@aem-sites/universal-editor-cors';
 const { REACT_APP_IO_URL } =process.env;
 
 const fetchFromAEM = async (path) => {
-  const url = `${REACT_APP_IO_URL}content?path=${path}`;
+  const url = `${REACT_APP_IO_URL}content?path=/${path.split(":/")[1]}`;
   const data = await fetch(url);
   return data.json();
 };
