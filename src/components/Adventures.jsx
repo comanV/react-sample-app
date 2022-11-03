@@ -17,7 +17,7 @@ const { REACT_APP_PUBLISH_URI } =process.env;
 
 function AdventureItem(props) {
   const [isInEditor,setIsInEditor] = useState(false);
-  const editorProps = useMemo(() => isInEditor && { itemID: "urn:aemconnection:" + props?._path, itemType: "urn:fcs:type/fragment" }, [isInEditor, props._path]);
+  const editorProps = useMemo(() => isInEditor && { itemID: "urn:aemconnection:" + props?._path, itemType: "reference", itemFilter: "cf"}, [isInEditor, props._path]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
@@ -31,7 +31,7 @@ function AdventureItem(props) {
   return (
          <li className="adventure-item" itemScope {...editorProps}>
           <Link to={`/adventure:${props.slug}`}>
-            <img className="adventure-item-image" src={`${REACT_APP_PUBLISH_URI}${props.primaryImage._path}`} 
+            <img className="adventure-item-image" src={`${REACT_APP_PUBLISH_URI}${props.primaryImage._path}`}
                 alt={props.title} itemProp="primaryImage" itemType="image" />
           </Link>
           <div className="adventure-item-length-price">
@@ -45,7 +45,7 @@ function AdventureItem(props) {
 
 // import { EditableCF } from '@aem-sites/universal-editor-react';
 
-// const Image = ({ _path, title }) => ( 
+// const Image = ({ _path, title }) => (
 //   <img className="adventure-item-image" src={_path} alt={title} />
 // );
 
@@ -72,7 +72,7 @@ function Adventures() {
 
   //If data is null then return a loading state...
   if(!data) return <Loading />;
-  
+
   return (
       <div className="adventures">
         <ul className="adventure-items">
