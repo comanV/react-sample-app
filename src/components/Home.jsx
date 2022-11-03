@@ -7,7 +7,7 @@ it.
 */
 import React from 'react';
 import Adventures from './Adventures';
-import AEMText from './AEMText';
+import Text from './Text';
 import Card from './Card';
 import Summary from './Summary';
 import {Link} from 'react-router-dom';
@@ -23,7 +23,7 @@ import {Link} from 'react-router-dom';
         <Card/>
         <hr/>
         <h2>
-          <AEMText className="customfont" itemID="/path/main-title"/>
+          <Text className="customfont" itemID="local:/path/home" itemProp="jcr:title"/>
         </h2>
         <Adventures />
         <hr/>

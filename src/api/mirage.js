@@ -14,31 +14,18 @@ let server = createServer({
     server.create(
       "path",
       getData({
-        id: "subtitle",
+        id: "card",
         linkDisabled: false,
-        type: "h2",
-        text: "Recent Articles",
-        ":type": "wknd/components/title",
-        appliedCssClassNames: "cmp-title--underline",
-      })
-    );
-    server.create(
-      "path",
-      getData({
-        id: "card-title",
-        linkDisabled: false,
-        type: "h1",
-        text: `Western Australia by Camper Van`,
+        title: `Western Australia by Camper Van`,
+	    subtitle: 'Recent Articles',
         ":type": "wknd/components/title",
       })
     );
     server.create(
       "path",
       getData({
-        id: "main-title",
-        linkDisabled: false,
-        type: "h2",
-        text: "WKND Guides",
+        id: "home",
+        "jcr:title": "WKND Guides",
         ":type": "wknd/components/title",
         appliedCssClassNames: "cmp-title--underline",
       })
