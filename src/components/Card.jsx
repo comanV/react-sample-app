@@ -9,21 +9,21 @@ it.
 import React from 'react';
 import {Link} from 'react-router-dom';
 import image from '../images/wknd-card.jpeg';
-import AEMText from './AEMText';
+import Text from './Text';
 
 const Card = () => (
   <>
     <article className="card">
       <img src={image} alt="Sample" />
       <div>
-        <h4><AEMText itemID="/path/subtitle"/></h4>
-        <h3><AEMText itemID="/path/card-title"/></h3>
-        <div class="card-text"><AEMText itemID="urn:aemconnection:/content/wknd/us/en/magazine/western-australia/jcr:content/root/container/container/contentfragment/par0/text" isAEM="true"/></div>
+        <h4><Text itemID="local:/path/card" itemProp="subtitle" itemType="text"/></h4>
+        <h3><Text itemID="local:/path/card" itemProp="title" itemType="text"/></h3>
+        <div className="card-text"><Text itemID="urn:aemconnection:/content/wknd/us/en/magazine/western-australia/jcr:content/root/container/container/contentfragment/par0/text" itemProp="text"/></div>
         <Link to={`/articles`}>
-          <button itemID="/path/button" itemType="urn:fcs:type/button">Show More</button>
+          <button itemID="local:/path/button" itemProp="buttontext" itemType="text">Show More</button>
         </Link>
       </div>
-    </article>       
+    </article>
   </>
 );
 
