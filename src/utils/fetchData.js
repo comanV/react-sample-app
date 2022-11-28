@@ -1,4 +1,4 @@
-const {REACT_APP_IO_URL} = process.env;
+const {REACT_APP_HOST_URI} = process.env;
 
 export const fetchData = async (path) => {
 	if (path.startsWith("local:")) {
@@ -7,9 +7,9 @@ export const fetchData = async (path) => {
 		const json = await data.json();
 		return json.paths;
 	} else {
-		const url = `${REACT_APP_IO_URL}content?path=/${path.split(":/")[1]}`;
+		const url = `${REACT_APP_HOST_URI}/${path.split(":/")[1]}.model.json`;
 		const data = await fetch(url);
 		const json = await data.json();
-		return json.data;
+		return json;
 	}
 };
