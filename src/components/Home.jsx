@@ -7,10 +7,10 @@ it.
 */
 import React from 'react';
 import Adventures from './Adventures';
-import Text from './Text';
 import Card from './Card';
 import Summary from './Summary';
 import {Link} from 'react-router-dom';
+import Title from './Title';
 /***
  * Displays a grid of current adventures
  */
@@ -22,9 +22,7 @@ import {Link} from 'react-router-dom';
         </Link>
         <Card/>
         <hr/>
-        <h2>
-          <Text className="customfont" itemID="local:/path/home" itemProp="jcr:title"/>
-        </h2>
+        <Title itemID="urn:aemconnection:/content/wknd/us/en/about-us/jcr:content/root/container/title_393953656_copy" itemType="text" itemProp="jcr:title"/>
         <Adventures />
         <hr/>
         <Summary />
