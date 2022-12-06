@@ -20,6 +20,7 @@ import Title from './Title';
         <Link to={`/article`}>
           <p>Go to Content Services Sample</p>
         </Link>
+        Some test content
         <Card/>
         <hr/>
         <Title itemID="urn:aemconnection:/content/wknd/us/en/about-us/jcr:content/root/container/title_393953656_copy" itemType="text" itemProp="jcr:title"/>
