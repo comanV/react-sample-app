@@ -8,25 +8,6 @@ import Articles from "./components/Articles";
 import ArticleDetail from "./components/ArticleDetail";
 import About from "./components/About";
 import "./api/mirage.js";
-import ContentSample from "./components/ContentSample";
-
-// import { EditorProvider } from '@aem-sites/universal-editor-react';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <div className="Home">
-//         <header>
-//           <img src={logo} className="logo" alt="WKND Logo"/>
-//           <hr />
-//         </header>
-//         <EditorProvider>
-//           <Adventures />
-//         </EditorProvider>
-//       </div>
-//     </div>
-//   );
-// }
 
 function App() {
   return (
@@ -40,7 +21,6 @@ function App() {
           <Routes>
             <Route path="/adventure:slug" element={<AdventureDetail />} />
             <Route path="/" element={<Home />} />
-            <Route path="/article" element={<ContentSample />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/articles/article:slug" element={<ArticleDetail />} />
             <Route path="/articles/article:slug/aboutus" element={<About />} />
