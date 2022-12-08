@@ -15,7 +15,7 @@ import { mapJsonRichText } from '../utils/renderRichText';
 import './AdventureDetail.scss';
 import useGraphQL from '../api/useGraphQL';
 import { getEditorContext } from '@aem-sites/universal-editor-cors';
-
+const { REACT_APP_PUBLISH_URI } = process.env;
 
 function AdventureDetail() {
 
@@ -66,7 +66,7 @@ function AdventureDetailRender({_path, title,
                                 itinerary,
                                 contributor, references}) {
     const [isInEditor,setIsInEditor] = useState(false);
-    const editorProps = useMemo(() => isInEditor && { itemID: _path, itemType: "urn:fcs:type/fragment" }, [isInEditor, _path]);
+    const editorProps = useMemo(() => isInEditor && { itemID: "urn:aemconnection:" + _path, itemType: "reference" }, [isInEditor, _path]);
 
     useEffect(() => {
         getEditorContext({ isInEditor: setIsInEditor });
@@ -74,7 +74,7 @@ function AdventureDetailRender({_path, title,
     
 
     return (<div {...editorProps} itemScope>
-            <h1 className="adventure-detail-title">{title}</h1>
+            <h1 className="adventure-detail-title" itemProp='title' itemType="text">{title}</h1>
             <div className="adventure-detail-info">
                 <div className="adventure-detail-info-label">Activity</div>
                 <div className="adventure-detail-info-description" itemProp='activity' itemType="text">{activity}</div>
@@ -89,13 +89,13 @@ function AdventureDetailRender({_path, title,
             </div>
             <div className="adventure-detail-content">
                 <img className="adventure-detail-primaryimage"
-                    src={primaryImage._path} alt={title} itemType="image"/>
-            <div>{mapJsonRichText(description.json, customRenderOptions(references))}</div>
+                    src={`${REACT_APP_PUBLISH_URI}${primaryImage._path}`} alt={title} itemType="image"/>
+            <div itemProp='description' itemType="text">{mapJsonRichText(description.json, customRenderOptions(references))}</div>
             <h2>Itinerary</h2>
             <hr />
 
             {/* Render the itinerary without any custom render options (just use defaults) */}
-            <div className="adventure-detail-itinerary">{mapJsonRichText(itinerary.json)}</div>
+            <div className="adventure-detail-itinerary" itemProp='itinerary' itemType="text">{mapJsonRichText(itinerary.json)}</div>
             <Contributer {...contributor} />
             </div>
     </div>

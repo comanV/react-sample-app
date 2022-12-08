@@ -14,7 +14,7 @@ import { mapJsonRichText } from '../utils/renderRichText';
 import './AdventureDetail.scss';
 import useGraphQL from '../api/useGraphQL';
 import { getEditorContext } from '@aem-sites/universal-editor-cors';
-
+const { REACT_APP_PUBLISH_URI } = process.env;
 
 function ArticleDetail() {
 
@@ -56,22 +56,19 @@ function ArticleDetailRender({_path, title,
                                 authorFragment}) {
 
     const [isInEditor,setIsInEditor] = useState(false);
-    const editorProps = useMemo(() => isInEditor && { itemID: _path, itemType: "text/fragment" }, [isInEditor, _path]);
+    const editorProps = useMemo(() => isInEditor && { itemID: "urn:aemconnection:" +_path, itemType: "reference" }, [isInEditor, _path]);
     
     useEffect(() => {
         getEditorContext({ isInEditor: setIsInEditor });
     }, []);
   
     return (<div itemScope {...editorProps}>
-            <h1 className="adventure-detail-title" itemProp="title" itemType="text">{title}</h1>
-            <div className="adventure-detail-info">
-                <Contributer {...authorFragment} />
-                <Link to={`/articles/article:${slug}/aboutus`}>About Us</Link>
-            </div>
-            <div className="adventure-detail-content">
+            <h1 itemProp="title" itemType="text">{title}</h1>
+            <div>
                 <img className="adventure-detail-primaryimage"
-                    src={featuredImage._path} alt={title}/>
-            <div>{mapJsonRichText(main.json)}</div>
+                    src={`${REACT_APP_PUBLISH_URI}${featuredImage._path}`} alt={title}/>
+            <div itemProp='main' itemType="text">{mapJsonRichText(main.json)}</div>
+            <Contributer {...authorFragment} />
             
             </div>
     </div>
@@ -111,13 +108,13 @@ function Contributer(props) {
   }
   let profilePicture = null;
   if(props.profilePicture) {
-    profilePicture =  <img className="contributor-image" src={props.profilePicture._path} alt={props.firstName} />
+    profilePicture =  <img className="contributor-image" src={`${REACT_APP_PUBLISH_URI}${props.profilePicture._path}`} alt={props.firstName} />
   }
 
   return (
     <div className="contributor">
       {profilePicture}
-      <h3 className="contributor-name">{props.firstName} {props.lastName}</h3>
+      <h3 className="contributor-name" itemProp='author' itemType="text">{props.firstName} {props.lastName}</h3>
     </div>);
 }
 

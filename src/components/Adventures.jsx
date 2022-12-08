@@ -43,25 +43,6 @@ function AdventureItem(props) {
   );
 }
 
-// import { EditableCF } from '@aem-sites/universal-editor-react';
-
-// const Image = ({ _path, title }) => (
-//   <img className="adventure-item-image" src={_path} alt={title} />
-// );
-
-// function AdventureItem({ _path, slug, ...props}) {
-//   if(!props || !_path || !props.title || !props.primaryImage ) {
-//     return null;
-//   }
-//   return (
-//     <li className="adventure-item">
-//       <EditableCF data={props} path={_path} components={{
-//         primaryImage: <Image />
-//       }}/>
-//     </li>
-//   );
-// }
-
 function Adventures() {
   const persistentQuery = 'wknd-shared/adventures-all';
   //Use a custom React Hook to execute the GraphQL query
