@@ -21,9 +21,9 @@ _Note: If facing issues with artifacts, ensure [artifact is accessible](https://
 
 ## Working with the editor
 
-- [Include package](https://github.com/comanV/react-sample-app/blob/prod/src/index.js#L3) to enable communication between the app and the editor
+- [Include package](https://github.com/comanV/react-sample-app/blob/c8eb6ab997a926440493e0bf959dbc734203973a/src/index.js#L3) to enable communication between the app and the editor
 
-- Add the AEM instance to be communicated with as a [meta property](https://github.com/comanV/react-sample-app/blob/prod/public/index.html#L8)
+- Add the AEM instance to be communicated with as a [meta property](https://github.com/comanV/react-sample-app/blob/c8eb6ab997a926440493e0bf959dbc734203973a/public/index.html#L8)
 
 The syntax to be followed is -
 
@@ -38,15 +38,15 @@ In this app, we are editing content on an AEM instance -
 
 - Now the fields to be made editable can be instrumented. Multiple samples can be seen across the app.
 
-For eg: [here](https://github.com/comanV/react-sample-app/blob/prod/src/components/ArticleDetail.jsx#L66), we would like to make the `title` field within the article content fragment editable. For this -
+For eg: [here](https://ue-remote-app-prod.adobe.net/articles/article:aloha-spirits-in-northern-norway), we would like to make the `title` field within the article content fragment editable. For this -
 
-- [Instrument the content fragment](https://github.com/comanV/react-sample-app/blob/prod/src/components/ArticleDetail.jsx#L65). For this, ensure following props are added to the corresponding element - 
+- [Instrument the content fragment](https://github.com/comanV/react-sample-app/blob/c8eb6ab997a926440493e0bf959dbc734203973a/src/components/ArticleDetail.jsx#L65). For this, ensure following props are added to the corresponding element - 
 
     - `itemscope`
     - `itemtype`: Since this is a CF, you can provide the value `reference`
     - `itemid`: Path to the corresponding CF on AEM. This should also inform the editor of which system the data comes from _(eg: "urn:aemconnection:<path_to_node>" ) where aemconnection is the name given to the mapping on the meta tag_ 
 
-- [Instrument the field to be edited](https://github.com/comanV/react-sample-app/blob/prod/src/components/ArticleDetail.jsx#L66). Props to be added - 
+- [Instrument the field to be edited](https://github.com/comanV/react-sample-app/blob/c8eb6ab997a926440493e0bf959dbc734203973a/src/components/ArticleDetail.jsx#L66). Props to be added - 
 
     - `itemtype`: Type of the field to be edited.For eg `text`
     - `itemprop`: When within a CF, name of the field in the CF to be edited
