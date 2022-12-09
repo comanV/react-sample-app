@@ -1,13 +1,62 @@
-# Local development
+# Universal Editor Sample App
 
-- The app it's getting data from an AEMCS instance (https://author-p48068-e243163.adobeaemcloud.com);
-- WKND project is installed the instance;
+## Prerequisites 
+
+- AEMCS instance is available
+- WKND project is installed on the instance
+- CORS enabled on AEM instance for the app
+- For local development with editor, ensure app is using *https*
+
+
+## Setup
+
+- Include [.npmrc](https://github.com/comanV/react-sample-app/blob/prod/.npmrc)
+
+- Install dependencies - ```yarn```
+
+_Note: If facing issues with artifacts, ensure [artifact is accessible](https://artifactory.corp.adobe.com/ui/native/npm-aem-sites-release/@aem-sites/) and if yes, ensure you are authenticated._
+
+```npm login --registry=https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/ --always-auth```
+
+
+## Working with the editor
+
+- [Include package](https://github.com/comanV/react-sample-app/blob/c8eb6ab997a926440493e0bf959dbc734203973a/src/index.js#L3) to enable communication between the app and the editor
+
+- Add the AEM instance to be communicated with as a [meta property](https://github.com/comanV/react-sample-app/blob/c8eb6ab997a926440493e0bf959dbc734203973a/public/index.html#L8)
+
+The syntax to be followed is -
+
+```
+name="urn:auecon:<name_of_the_mapping" content="<type_of_system>:<system_url>"
+```
+
+In this app, we are editing content on an AEM instance -
+```
+<meta name="urn:auecon:aemconnection" content="aem:https://author-p48068-e243163.adobeaemcloud.com">
+```
+
+- Now the fields to be made editable can be instrumented. Multiple samples can be seen across the app.
+
+For eg: [here](https://ue-remote-app-prod.adobe.net/articles/article:aloha-spirits-in-northern-norway), we would like to make the `title` field within the article content fragment editable. For this -
+
+- [Instrument the content fragment](https://github.com/comanV/react-sample-app/blob/c8eb6ab997a926440493e0bf959dbc734203973a/src/components/ArticleDetail.jsx#L65). For this, ensure following props are added to the corresponding element - 
+
+    - `itemscope`
+    - `itemtype`: Since this is a CF, you can provide the value `reference`
+    - `itemid`: Path to the corresponding CF on AEM. This should also inform the editor of which system the data comes from _(eg: "urn:aemconnection:<path_to_node>" ) where aemconnection is the name given to the mapping on the meta tag_ 
+
+- [Instrument the field to be edited](https://github.com/comanV/react-sample-app/blob/c8eb6ab997a926440493e0bf959dbc734203973a/src/components/ArticleDetail.jsx#L66). Props to be added - 
+
+    - `itemtype`: Type of the field to be edited.For eg `text`
+    - `itemprop`: When within a CF, name of the field in the CF to be edited
+
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [https://localhost:3000](https://localhost:3000) to view it in your browser.
@@ -15,7 +64,7 @@ Open [https://localhost:3000](https://localhost:3000) to view it in your browser
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm run build`
+### `yarn build`
 
 Builds the app for production to the `build` folder.
 Utilize a gulp task to bundle all the JS and CSS files in the static build folder into the single main `index.html` file.
