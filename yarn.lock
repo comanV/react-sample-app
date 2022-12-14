@@ -79,38 +79,32 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@aem-sites/universal-editor-commons@^0.0.16":
-  version "0.0.16"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-commons/-/@aem-sites/universal-editor-commons-0.0.16.tgz#ad06e7c5c7a4c35ea79536953003312be760afac"
-  integrity sha512-byBhVKnUgd36WHaTWKMfPvfUFUIlGbPGndz+dQCVXz5ZkI0dRkG/EbF5WzmmlOAZEh17EoTiBW6+PD/s3DTsVA==
+"@aem-sites/universal-editor-commons@^0.0.20":
+  version "0.0.20"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-commons/-/@aem-sites/universal-editor-commons-0.0.20.tgz#65eab799319a37c34a9d5dd95a2b32379fa1e5e2"
+  integrity sha512-LD21c8rRBJ6ILaUkzgbEM4Tz/l4pw5Q3iWfv3O5h9UovXrMzJeV+eDYHXpbhqr3vYZRo4VGFj0thuIzEW9uXcA==
   dependencies:
-    react "^18.2.0"
     typescript "~4.7.2"
 
-"@aem-sites/universal-editor-cors@^0.0.43":
-  version "0.0.43"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.43.tgz#ce6bad767d737cba57ec357f7b214247fa5d0b83"
-  integrity sha512-aHXpVy39ZQGl8L6q4r4akvva5eesB0e+YvKn5wRi2v/W/xYlLa/NTeZ32x703X9rQUWGv59cfpWAHvXV0JcrEQ==
+"@aem-sites/universal-editor-cors@^0.0.47":
+  version "0.0.47"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-cors/-/@aem-sites/universal-editor-cors-0.0.47.tgz#03c5f9044a87e6a6fcba0d48ca266fb5c844e0ac"
+  integrity sha512-VwrXT3UhFsfH3dZ1PhWu44G9BASiHUdQB3H3z8I/rmEoi8Q/KNWLKkabVoTMVYlu2YyuFu6UzA9+bgSkZd1Zhg==
   dependencies:
-    "@aem-sites/universal-editor-commons" "^0.0.16"
-    "@aem-sites/universal-editor-overlays" "^0.0.42"
+    "@aem-sites/universal-editor-commons" "^0.0.20"
+    "@aem-sites/universal-editor-overlays" "^0.0.46"
     penpal "^6.2.2"
-    react "^18.2.0"
-    react-dom "^18.2.0"
     typescript "~4.7.2"
-    zustand "^4.1.1"
+    zustand "^4.1.5"
 
-"@aem-sites/universal-editor-overlays@^0.0.42":
-  version "0.0.42"
-  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.42.tgz#83e2ed1790ef1c09fe2b85157b1e8a562f5d9654"
-  integrity sha512-hO8A/JjmesHcz7TzY3BnVXI28p+3DRDOagG5HsmzHheJg2X+Nj/oR1HjDAz24NkrKc9DdZhYgMbYMCd2Q4Te4g==
+"@aem-sites/universal-editor-overlays@^0.0.46":
+  version "0.0.46"
+  resolved "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-aem-sites-release/@aem-sites/universal-editor-overlays/-/@aem-sites/universal-editor-overlays-0.0.46.tgz#9fc0183db2d65545de6f0812b149df6a9e88775a"
+  integrity sha512-+9zL+BzdrSL3yAM05DJ+R0Ohsr3o1XzhIqb8CMLaYss8NiyMPty6r2yTBrYAnizrQGVBJnFjhWMCTxvajnR/EA==
   dependencies:
-    "@aem-sites/universal-editor-commons" "^0.0.16"
+    "@aem-sites/universal-editor-commons" "^0.0.20"
     debounce "^1.2.1"
-    react "^18.2.0"
-    react-dom "^18.2.0"
     typescript "~4.7.2"
-    use-debounce "^8.0.4"
     uuid "^9.0.0"
 
 "@ampproject/remapping@^2.1.0":
@@ -12597,11 +12591,6 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-use-debounce@^8.0.4:
-  version "8.0.4"
-  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-8.0.4.tgz#27e93b2f010bd0b8ad06e9fc7de891d9ee5d6b8e"
-  integrity sha512-fGqsYQzl8kLHF2QpQSgIwgOgJmnh6j5L6SIzQiHdLfwp3q1egUL3btq5Bg2SJysH6A0ILLgT2IqXZKoNJr0nFw==
-
 use-sync-external-store@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
@@ -13429,5 +13418,12 @@ zustand@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.1.1.tgz#5a61cc755a002df5f041840a414ae6e9a99ee22b"
   integrity sha512-h4F3WMqsZgvvaE0n3lThx4MM81Ls9xebjvrABNzf5+jb3/03YjNTSgZXeyrvXDArMeV9untvWXRw1tY+ntPYbA==
+  dependencies:
+    use-sync-external-store "1.2.0"
+
+zustand@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.1.5.tgz#7402b511f5b23ccb0f9ba6d20ae01ec817e16eb6"
+  integrity sha512-PsdRT8Bvq22Yyh1tvpgdHNE7OAeFKqJXUxtJvj1Ixw2B9O2YZ1M34ImQ+xyZah4wZrR4lENMoDUutKPpyXCQ/Q==
   dependencies:
     use-sync-external-store "1.2.0"
