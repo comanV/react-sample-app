@@ -10,15 +10,16 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import image from '../images/wknd-card.jpeg';
 import Text from './Text';
+import Title from './Title';
 
 const Card = () => (
   <>
     <article className="card">
       <img src={image} alt="Sample" />
       <div>
-        <h4><Text itemID="local:/path/card" itemProp="subtitle" itemType="text"/></h4>
-        <h3><Text itemID="local:/path/card" itemProp="title" itemType="text"/></h3>
-        <div className="card-text"><Text itemID="urn:aemconnection:/content/wknd/us/en/magazine/western-australia/jcr:content/root/container/container/contentfragment/par0/text" itemProp="text"/></div>
+        <Title itemID="urn:aemconnection:/content/wknd/us/en/jcr:content/root/container/container/title" itemProp="jcr:title" itemType="text"/>
+        <Title itemID="urn:aemconnection:/content/wknd/us/en/magazine/western-australia/jcr:content/root/container/container/title" itemProp="jcr:title" itemType="text"/>
+        <div className="card-text"><Text itemID="urn:aemconnection:/content/wknd/us/en/magazine/ski-touring/jcr%3Acontent/root/container/container/contentfragment/par1/text" itemProp="text" itemType="richtext"/></div>
         <Link to={`/articles`}>
           <button itemID="local:/path/button" itemProp="buttontext" itemType="text">Show More</button>
         </Link>
