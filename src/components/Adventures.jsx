@@ -17,7 +17,7 @@ const { REACT_APP_PUBLISH_URI } =process.env;
 
 function AdventureItem(props) {
   const [isInEditor,setIsInEditor] = useState(false);
-  const editorProps = useMemo(() => isInEditor && { itemID: "urn:aemconnection:" + props?._path, itemType: "reference", itemfilter: "cf"}, [isInEditor, props._path]);
+  const editorProps = useMemo(() => isInEditor && { itemID: "urn:aemconnection:" + props?._path + "/jcr:content/data/master", itemType: "reference", itemfilter: "cf"}, [isInEditor, props._path]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
