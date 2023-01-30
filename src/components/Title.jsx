@@ -11,13 +11,14 @@ import { getEditorContext } from '@aem-sites/universal-editor-cors';
 import {fetchData} from '../utils/fetchData';
 
 const Title = (props) => {
-  const { itemID, itemProp = "jcr:title", itemType, className, data: initialData } = props;
+  const { itemID, itemProp = "jcr:title", itemType, className, data: initialData, isComponent = false } = props;
   const [isInEditor,setIsInEditor] = useState(false);
   const editorProps = useMemo(() => isInEditor && {
     itemID,
     itemProp,
-    itemType
-  }, [isInEditor, itemID, itemProp, itemType]);
+    itemType,
+    "data-editor-behavior": isComponent
+  }, [isInEditor, itemID, itemProp, itemType, isComponent ]);
 
   useEffect(() => {
     getEditorContext({ isInEditor: setIsInEditor });
