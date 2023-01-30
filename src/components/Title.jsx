@@ -11,7 +11,7 @@ import { getEditorContext } from '@aem-sites/universal-editor-cors';
 import {fetchData} from '../utils/fetchData';
 
 const Title = (props) => {
-  const { itemID, itemProp, itemType, className } = props;
+  const { itemID, itemProp = "jcr:title", itemType, className, data: initialData } = props;
   const [isInEditor,setIsInEditor] = useState(false);
   const editorProps = useMemo(() => isInEditor && {
     itemID,
@@ -23,11 +23,13 @@ const Title = (props) => {
     getEditorContext({ isInEditor: setIsInEditor });
   }, []);
 
-  const [data,setData] = React.useState({});
+  const [data,setData] = React.useState(initialData || {});
   useEffect(() => {
     if(!itemID || !itemProp) return;
-    fetchData(itemID).then((data) => setData(data));
-  }, [itemID, itemProp]);
+    if (!initialData) { fetchData(itemID).then((data) => setData(data)) };
+  }, [itemID, itemProp, initialData]);
+
+  if(!data.type) return null;
 
   const TitleTag = `${data.type}`;
   return (
